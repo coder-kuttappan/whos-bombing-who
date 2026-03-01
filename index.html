@@ -262,27 +262,19 @@
             text-transform: uppercase; letter-spacing: 0.5px;
         }
         #conflict-count { font-size: 12px; color: var(--text-secondary); }
-        .header-btn {
-            background: var(--accent-light); border: none;
-            color: var(--accent); font-weight: 500;
-            padding: 6px 14px; border-radius: var(--radius-sm);
-            cursor: pointer; font-size: 13px; font-family: inherit;
-            transition: background 0.15s ease;
-        }
-        .header-btn:hover { background: var(--accent-hover); }
-
-        /* Mobile menu button + dropdown */
-        #mobile-menu-btn {
-            display: none;
+        /* Menu button (always visible) */
+        #menu-btn {
             background: var(--accent-light); border: none;
             color: var(--accent);
-            width: 44px; height: 44px; border-radius: var(--radius-sm);
+            width: 36px; height: 36px; border-radius: var(--radius-sm);
             cursor: pointer; font-family: inherit;
-            align-items: center; justify-content: center;
-            margin-left: auto; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.15s ease;
         }
-        #mobile-menu-btn svg { width: 20px; height: 20px; }
-        #mobile-menu {
+        #menu-btn:hover { background: var(--accent-hover); }
+        #menu-btn svg { width: 18px; height: 18px; }
+        #app-menu {
             display: none;
             position: fixed; top: 52px; right: 8px;
             background: var(--bg); border: 1px solid var(--border);
@@ -290,30 +282,30 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.5);
             padding: 14px 16px; min-width: 200px;
         }
-        #mobile-menu.open { display: block; }
-        .mobile-menu-item {
+        #app-menu.open { display: block; }
+        .menu-item {
             display: block; width: 100%; text-align: left;
             background: none; border: none; color: var(--text);
             font-size: 14px; font-weight: 500; font-family: inherit;
             padding: 10px 8px; cursor: pointer;
-            border-radius: 8px;
+            border-radius: 8px; text-decoration: none;
         }
-        .mobile-menu-item:active { background: var(--card); }
-        .mobile-menu-divider {
+        .menu-item:hover, .menu-item:active { background: var(--card); }
+        .menu-divider {
             border-top: 1px solid var(--border);
             margin: 8px 0;
         }
-        .mobile-legend-item {
+        .menu-legend-item {
             display: flex; align-items: center; gap: 8px;
             padding: 4px 8px; font-size: 12px; color: var(--text-secondary);
         }
-        .mobile-legend-dot {
+        .menu-legend-dot {
             width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
         }
-        .mobile-legend-dot.escalating { background: #ff2d2d; }
-        .mobile-legend-dot.active { background: #E08A4A; }
-        .mobile-legend-dot.ceasefire { background: #6DB8BA; }
-        .mobile-legend-note {
+        .menu-legend-dot.escalating { background: #ff2d2d; }
+        .menu-legend-dot.active { background: #E08A4A; }
+        .menu-legend-dot.ceasefire { background: #6DB8BA; }
+        .menu-legend-note {
             font-size: 10px; color: var(--text-muted); font-style: italic;
             padding: 4px 8px;
         }
@@ -401,16 +393,16 @@
 
         /* Mobile responsive */
         @media (max-width: 768px) {
-            #header { height: auto; padding: 10px 8px 10px 14px; flex-wrap: wrap; gap: 4px; }
-            #header-left { gap: 8px; }
-            #header h1 { font-size: 14px; }
+            #header { padding: 0 8px 0 14px; }
+            #header-left { gap: 8px; flex-shrink: 1; min-width: 0; }
+            #header h1 { font-size: 14px; white-space: nowrap; }
             #tagline { display: none; }
-            #header-right { gap: 8px; }
-            #header-right .header-btn { display: none; }
+            #header-right { gap: 8px; flex-shrink: 0; }
             #last-updated { font-size: 10px; }
             #conflict-count { font-size: 11px; }
 
-            #mobile-menu-btn { display: flex; }
+            #menu-btn { width: 44px; height: 44px; }
+            #menu-btn svg { width: 20px; height: 20px; }
             #legend { display: none; }
 
             #sidebar {
@@ -457,19 +449,19 @@
         <span id="demo-badge">DEMO</span>
         <span id="conflict-count"></span>
         <span id="last-updated"></span>
-        <button class="header-btn" onclick="openAbout()">About</button>
-        <button id="mobile-menu-btn" onclick="toggleMobileMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <button id="menu-btn" onclick="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
 </div>
 
-<div id="mobile-menu">
-    <button class="mobile-menu-item" onclick="openAbout(); closeMobileMenu();">About</button>
-    <div class="mobile-menu-divider"></div>
+<div id="app-menu">
+    <button class="menu-item" onclick="openAbout(); closeMenu();">About</button>
+    <a class="menu-item" href="https://coderkuttappan.com" target="_blank">coderkuttappan.com</a>
+    <div class="menu-divider"></div>
     <div style="padding: 4px 8px 2px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 600;">Legend</div>
-    <div class="mobile-legend-item"><span class="mobile-legend-dot escalating"></span> Escalating</div>
-    <div class="mobile-legend-item"><span class="mobile-legend-dot active"></span> Active</div>
-    <div class="mobile-legend-item"><span class="mobile-legend-dot ceasefire"></span> Ceasefire / De-escalating</div>
-    <div class="mobile-legend-note">Pulse speed = intensity</div>
+    <div class="menu-legend-item"><span class="menu-legend-dot escalating"></span> Escalating</div>
+    <div class="menu-legend-item"><span class="menu-legend-dot active"></span> Active</div>
+    <div class="menu-legend-item"><span class="menu-legend-dot ceasefire"></span> Ceasefire / De-escalating</div>
+    <div class="menu-legend-note">Pulse speed = intensity</div>
 </div>
 
 <div id="map"></div>
@@ -516,7 +508,7 @@
     </div>
 </div>
 
-<div id="map-disclaimer">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--text-muted);">OpenStreetMap</a>. Boundaries are approximate and do not imply official endorsement. Conflict locations are AI-estimated. · <a href="https://coderkuttappan.com" target="_blank" style="color:var(--text-muted);">coderkuttappan.com</a></div>
+<div id="map-disclaimer">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--text-muted);">OpenStreetMap</a>. Boundaries are approximate and do not imply official endorsement. Conflict locations are AI-estimated.</div>
 
 <div id="loading">
     <div class="spinner"></div>
@@ -864,21 +856,21 @@
     function openAbout() { document.getElementById('about-modal').classList.add('open'); }
     function closeAbout() { document.getElementById('about-modal').classList.remove('open'); }
 
-    function toggleMobileMenu() {
-        document.getElementById('mobile-menu').classList.toggle('open');
+    function toggleMenu() {
+        document.getElementById('app-menu').classList.toggle('open');
     }
-    function closeMobileMenu() {
-        document.getElementById('mobile-menu').classList.remove('open');
+    function closeMenu() {
+        document.getElementById('app-menu').classList.remove('open');
     }
 
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { closeSidebar(); closeAbout(); closeMobileMenu(); }
+        if (e.key === 'Escape') { closeSidebar(); closeAbout(); closeMenu(); }
     });
     document.addEventListener('click', e => {
-        const menu = document.getElementById('mobile-menu');
-        const btn = document.getElementById('mobile-menu-btn');
-        if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) {
-            closeMobileMenu();
+        const menu = document.getElementById('app-menu');
+        const btn = document.getElementById('menu-btn');
+        if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+            closeMenu();
         }
     });
     document.getElementById('about-modal').addEventListener('click', e => {
