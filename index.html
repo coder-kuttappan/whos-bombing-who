@@ -678,7 +678,20 @@
         const year = d.getUTCFullYear();
         const hours = String(d.getUTCHours()).padStart(2, '0');
         const mins = String(d.getUTCMinutes()).padStart(2, '0');
-        return `Updated ${day} ${month} ${year}, ${hours}:${mins} UTC`;
+        const ago = timeAgo(d);
+        return `${hours}:${mins} UTC (${ago})`;
+    }
+
+    function timeAgo(date) {
+        const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+        if (seconds < 60) return 'just now';
+        const minutes = Math.floor(seconds / 60);
+        if (minutes < 60) return `${minutes}m ago`;
+        const hrs = Math.floor(minutes / 60);
+        const remainMins = minutes % 60;
+        if (hrs < 24) return remainMins > 0 ? `${hrs}h ${remainMins}m ago` : `${hrs}h ago`;
+        const days = Math.floor(hrs / 24);
+        return `${days}d ago`;
     }
 
     const map = L.map('map', {
