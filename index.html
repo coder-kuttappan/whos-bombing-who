@@ -21,7 +21,8 @@
             --accent-hover: rgba(109, 184, 186, 0.2);
             --danger: #ff4444;
             --danger-light: rgba(255, 68, 68, 0.1);
-            --warning: #C4896A;
+            --warning: #E08A4A;
+            --warning-light: rgba(224, 138, 74, 0.15);
             --radius: 16px;
             --radius-sm: 12px;
         }
@@ -38,20 +39,70 @@
 
         #map { width: 100vw; height: 100vh; }
 
-        /* Map markers — red stays for conflict dots */
+        /* Map markers — color-coded by status */
         .conflict-marker { background: transparent !important; border: none !important; }
         .conflict-dot {
             width: 14px; height: 14px;
-            background: #ff2d2d;
             border-radius: 50%;
-            border: 2px solid #ff6b6b;
-            box-shadow: 0 0 12px #ff2d2d, 0 0 24px rgba(255, 45, 45, 0.4);
-            animation: pulse 2s ease-in-out infinite;
             cursor: pointer;
         }
-        @keyframes pulse {
+        .dot-escalating {
+            background: #ff2d2d;
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 0 12px #ff2d2d, 0 0 24px rgba(255, 45, 45, 0.4);
+            animation: pulse-fast 1s ease-in-out infinite;
+        }
+        .dot-active {
+            background: #E08A4A;
+            border: 2px solid #f0a86e;
+            box-shadow: 0 0 10px #E08A4A, 0 0 20px rgba(224, 138, 74, 0.35);
+            animation: pulse-medium 2s ease-in-out infinite;
+        }
+        .dot-ceasefire, .dot-de-escalating {
+            background: #6DB8BA;
+            border: 2px solid #8fd0d2;
+            box-shadow: 0 0 8px #6DB8BA, 0 0 16px rgba(109, 184, 186, 0.3);
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+        @keyframes pulse-fast {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.7; }
+            50% { transform: scale(1.5); opacity: 0.6; }
+        }
+        @keyframes pulse-medium {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.8; }
+        }
+
+        /* Legend */
+        #legend {
+            position: fixed; bottom: 24px; right: 16px;
+            background: rgba(28, 28, 30, 0.9); backdrop-filter: blur(8px);
+            border: 1px solid var(--border); border-radius: var(--radius-sm);
+            padding: 12px 16px; z-index: 998;
+            font-size: 11px; color: var(--text-muted);
+        }
+        #legend h4 {
+            font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+            font-weight: 600; margin-bottom: 8px; color: var(--text-secondary);
+        }
+        .legend-item {
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 5px;
+        }
+        .legend-item:last-child { margin-bottom: 0; }
+        .legend-dot {
+            width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+        }
+        .legend-dot.escalating { background: #ff2d2d; box-shadow: 0 0 6px #ff2d2d; }
+        .legend-dot.active { background: #E08A4A; box-shadow: 0 0 6px #E08A4A; }
+        .legend-dot.ceasefire { background: #6DB8BA; box-shadow: 0 0 6px #6DB8BA; }
+        .legend-note {
+            font-size: 10px; color: var(--text-muted); margin-top: 6px;
+            font-style: italic; border-top: 1px solid var(--border); padding-top: 6px;
         }
 
         /* Sidebar overlay */
@@ -106,10 +157,20 @@
             font-size: 11px; font-weight: 600; text-transform: uppercase;
             letter-spacing: 0.3px;
         }
-        .status-active { background: var(--danger-light); color: var(--danger); }
-        .status-escalating { background: rgba(196, 137, 106, 0.15); color: var(--warning); }
+        .status-active { background: var(--warning-light); color: var(--warning); }
+        .status-escalating { background: var(--danger-light); color: var(--danger); }
         .status-ceasefire { background: var(--accent-light); color: var(--accent); }
         .status-de-escalating { background: rgba(107, 174, 140, 0.15); color: #6BAE8C; }
+
+        .since-badge {
+            font-size: 11px; color: var(--text-muted);
+        }
+        .new-badge {
+            display: inline-block; padding: 2px 7px;
+            border-radius: 20px; font-size: 9px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            background: rgba(255, 68, 68, 0.15); color: var(--danger);
+        }
 
         .meta-location { font-size: 12px; color: var(--text-muted); }
 
@@ -117,6 +178,20 @@
             display: inline-flex; align-items: center; gap: 4px;
             font-size: 11px; color: #C4896A; background: rgba(196, 137, 106, 0.1);
             padding: 3px 10px; border-radius: 20px;
+        }
+
+        /* Travel alert */
+        .travel-alert {
+            display: none; padding: 10px 14px; margin-bottom: 16px;
+            background: rgba(109, 184, 186, 0.08);
+            border: 1px solid rgba(109, 184, 186, 0.2);
+            border-radius: var(--radius-sm);
+            font-size: 12px; line-height: 1.6; color: var(--text-secondary);
+        }
+        .travel-alert.visible { display: block; }
+        .travel-alert-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--accent); margin-bottom: 4px;
         }
 
         /* Parties */
@@ -142,7 +217,7 @@
             font-weight: 400;
         }
 
-        /* Impact sections */
+        /* Impact section */
         .impact-section {
             border-top: 1px solid var(--border); padding-top: 16px; margin-top: 8px;
             display: none;
@@ -151,10 +226,6 @@
         .impact-section h3 {
             font-size: 11px; text-transform: uppercase; color: var(--text-muted);
             margin-bottom: 12px; letter-spacing: 0.5px; font-weight: 600;
-        }
-        #impact-loading {
-            color: var(--text-muted); font-size: 13px;
-            font-style: italic; margin-top: 14px;
         }
 
         .impact-section ul { list-style: none; padding: 0; margin: 0; }
@@ -166,18 +237,6 @@
         }
         .impact-section li strong { color: var(--text); font-weight: 500; }
 
-        #personal-impact-section li { border-left-color: var(--accent); }
-
-        .profile-nudge {
-            font-size: 12px; color: var(--text-muted); font-style: italic;
-            padding: 10px 0;
-        }
-        .profile-nudge a {
-            color: var(--accent); cursor: pointer; text-decoration: none;
-            font-weight: 500;
-        }
-        .profile-nudge a:hover { text-decoration: underline; }
-
         /* Header */
         #header {
             position: fixed; top: 0; left: 0; right: 0; height: 52px;
@@ -186,14 +245,18 @@
             padding: 0 20px; z-index: 999;
             border-bottom: 1px solid var(--border);
         }
+        #header-left { display: flex; align-items: baseline; gap: 12px; }
         #header h1 {
-            font-size: 15px; font-weight: 600; color: var(--accent);
+            font-size: 15px; font-weight: 600; color: var(--danger);
             letter-spacing: -0.2px;
+        }
+        #tagline {
+            font-size: 12px; color: var(--text-muted); font-weight: 400;
         }
         #header-right { display: flex; align-items: center; gap: 14px; }
         #last-updated { font-size: 11px; color: var(--text-muted); }
         #demo-badge {
-            background: rgba(196, 137, 106, 0.15); color: var(--warning);
+            background: rgba(196, 137, 106, 0.15); color: #C4896A;
             font-size: 10px; font-weight: 600;
             padding: 2px 8px; border-radius: 20px; display: none;
             text-transform: uppercase; letter-spacing: 0.5px;
@@ -227,14 +290,14 @@
             font-size: 14px; font-weight: 400;
         }
 
-        /* Settings modal */
-        #settings-modal {
+        /* About modal */
+        #about-modal {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px);
             display: none; align-items: center; justify-content: center;
             z-index: 3000;
         }
-        #settings-modal.open { display: flex; }
+        #about-modal.open { display: flex; }
         .modal-content {
             background: var(--bg); border: 1px solid var(--border);
             border-radius: var(--radius); box-shadow: 0 25px 50px rgba(0,0,0,0.5);
@@ -243,33 +306,22 @@
         .modal-content h2 {
             font-size: 18px; font-weight: 600; margin-bottom: 6px; color: var(--text);
         }
-        .form-group { margin-bottom: 16px; }
-        .form-group label {
-            display: block; font-size: 11px; text-transform: uppercase;
-            color: var(--text-muted); margin-bottom: 6px;
-            letter-spacing: 0.5px; font-weight: 600;
+        .about-section { margin-bottom: 18px; }
+        .about-section h4 {
+            font-size: 11px; text-transform: uppercase; color: var(--text-muted);
+            letter-spacing: 0.5px; font-weight: 600; margin-bottom: 8px;
         }
-        .form-group input, .form-group textarea {
-            width: 100%; background: var(--card); border: 1px solid var(--border);
-            color: var(--text); padding: 10px 14px; border-radius: var(--radius-sm);
-            font-size: 14px; font-family: inherit; transition: border-color 0.15s ease;
+        .about-section ul { list-style: none; padding: 0; margin: 0; }
+        .about-section li {
+            font-size: 13px; color: var(--text-secondary); line-height: 1.8;
         }
-        .form-group textarea { resize: vertical; min-height: 60px; }
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none; border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(109, 184, 186, 0.15);
+        .about-section li strong { color: var(--text); font-weight: 500; }
+        .about-section a { color: var(--accent); text-decoration: none; }
+        .about-section a:hover { text-decoration: underline; }
+        .about-section p {
+            font-size: 12px; color: var(--text-muted); line-height: 1.7;
+            margin-bottom: 8px;
         }
-        .form-group input::placeholder, .form-group textarea::placeholder {
-            color: var(--text-muted); opacity: 0.6;
-        }
-        .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; }
-        .btn-save {
-            background: var(--accent); color: #1C1C1E; border: none; font-weight: 600;
-            padding: 10px 24px; border-radius: var(--radius-sm);
-            cursor: pointer; font-size: 14px; font-family: inherit;
-            transition: opacity 0.15s ease;
-        }
-        .btn-save:hover { opacity: 0.9; }
         .btn-cancel {
             background: var(--card); border: 1px solid var(--border);
             color: var(--text-secondary); font-weight: 500;
@@ -278,6 +330,7 @@
             transition: border-color 0.15s ease;
         }
         .btn-cancel:hover { border-color: var(--text-muted); }
+        .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; }
 
         /* Leaflet tooltip override */
         .leaflet-tooltip {
@@ -293,16 +346,27 @@
 <body>
 
 <div id="header">
-    <h1>Who's Bombing Who?</h1>
+    <div id="header-left">
+        <h1>Who's Bombing Who?</h1>
+        <span id="tagline">Global conflicts, mapped and explained. No doomscrolling required.</span>
+    </div>
     <div id="header-right">
         <span id="demo-badge">DEMO</span>
         <span id="conflict-count"></span>
         <span id="last-updated"></span>
-        <button class="header-btn" onclick="openSettings()">Settings</button>
+        <button class="header-btn" onclick="openAbout()">About</button>
     </div>
 </div>
 
 <div id="map"></div>
+
+<div id="legend">
+    <h4>Status</h4>
+    <div class="legend-item"><span class="legend-dot escalating"></span> Escalating</div>
+    <div class="legend-item"><span class="legend-dot active"></span> Active</div>
+    <div class="legend-item"><span class="legend-dot ceasefire"></span> Ceasefire / De-escalating</div>
+    <div class="legend-note">Pulse speed = intensity</div>
+</div>
 
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 <div id="sidebar">
@@ -312,11 +376,18 @@
         <h2 id="conflict-name"></h2>
         <div class="meta-row">
             <span id="conflict-status" class="status-badge"></span>
+            <span id="conflict-since" class="since-badge"></span>
+            <span id="conflict-new" class="new-badge" style="display:none;">NEW</span>
             <span id="conflict-location" class="meta-location"></span>
         </div>
         <div class="meta-row">
             <span id="conflict-casualties" class="casualties-badge"></span>
         </div>
+    </div>
+
+    <div id="travel-alert" class="travel-alert">
+        <div class="travel-alert-label">Travel disruption</div>
+        <span id="travel-alert-text"></span>
     </div>
 
     <div id="conflict-parties" class="parties-row"></div>
@@ -327,13 +398,6 @@
         <h3>Global Impact</h3>
         <div id="global-impact-content"></div>
     </div>
-
-    <div id="personal-impact-section" class="impact-section">
-        <h3>How This Affects You</h3>
-        <div id="personal-impact-content"></div>
-    </div>
-
-    <p id="impact-loading">Loading impact analysis...</p>
 </div>
 
 <div id="loading">
@@ -341,27 +405,63 @@
     <p>Scanning global conflicts...</p>
 </div>
 
-<div id="settings-modal">
-    <div class="modal-content">
-        <h2>Your Profile</h2>
+<div id="about-modal">
+    <div class="modal-content" style="max-width: 520px; max-height: 85vh; overflow-y: auto;">
+        <h2>About This App</h2>
         <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
-            Help personalize impact analysis. All data stays local.
+            A dashboard tracking active armed conflicts around the world. Updated every 4 hours.
         </p>
-        <div class="form-group">
-            <label>Where do you live?</label>
-            <input type="text" id="profile-location" placeholder="e.g., Bangalore, India">
+
+        <div class="about-section">
+            <h4>How it works</h4>
+            <p>Every 4 hours, a script fetches the latest headlines from international news RSS feeds and sends them to Google Gemini (AI) to identify active armed conflicts worldwide. The AI extracts structured data — parties involved, location, status, casualties — and generates a global impact summary and travel disruption alerts for each conflict. The results are saved as a static JSON file that this page loads directly. There is no backend server — just a pre-generated data file and a map.</p>
+            <p>The AI is also prompted to include major ongoing conflicts that may not appear in the current news cycle, so coverage isn't limited to what's trending today.</p>
         </div>
-        <div class="form-group">
-            <label>Upcoming travel (optional)</label>
-            <textarea id="profile-travel" placeholder="e.g., Flying to London in April, transit through Dubai"></textarea>
+
+        <div class="about-section">
+            <h4>What the map shows</h4>
+            <ul>
+                <li><strong>Dots</strong> — each dot is an armed conflict. Color indicates status: <span style="color:#ff4444;">red</span> = escalating, <span style="color:#E08A4A;">orange</span> = active, <span style="color:#6DB8BA;">teal</span> = ceasefire or de-escalating.</li>
+                <li><strong>Pulse speed</strong> — faster pulse = higher intensity (escalating conflicts pulse fastest).</li>
+                <li><strong>Dashed lines</strong> — connect the countries/groups involved in each conflict. Color matches the conflict's status. These are approximate and based on party name matching — they show geopolitical connections, not precise battle lines.</li>
+            </ul>
         </div>
-        <div class="form-group">
-            <label>Interests / concerns (optional)</label>
-            <textarea id="profile-interests" placeholder="e.g., oil prices, tech supply chain, coffee imports"></textarea>
+
+        <div class="about-section">
+            <h4>Sources</h4>
+            <ul>
+                <li><strong>News data</strong> — RSS feeds from <a href="https://www.bbc.co.uk/news/world" target="_blank">BBC World</a>, <a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a>, and <a href="https://www.nytimes.com/section/world" target="_blank">The New York Times</a></li>
+                <li><strong>Conflict extraction & analysis</strong> — <a href="https://ai.google.dev/" target="_blank">Google Gemini</a> (AI-generated)</li>
+                <li><strong>Map tiles</strong> — <a href="https://carto.com/" target="_blank">CARTO</a> (Dark Matter), using <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> data</li>
+                <li><strong>Map library</strong> — <a href="https://leafletjs.com/" target="_blank">Leaflet.js</a></li>
+            </ul>
         </div>
+
+        <div class="about-section">
+            <h4>Accuracy & limitations</h4>
+            <p><strong>This is not a verified news source.</strong> All conflict data, summaries, impact analysis, and travel alerts are generated by AI from public news headlines. They may contain factual errors, omissions, misattributions, outdated information, or biases present in the source material.</p>
+            <p>Specific limitations:</p>
+            <ul>
+                <li>Conflict coverage depends on what appears in English-language RSS feeds from three outlets — conflicts underreported in Western media may be missing or understated.</li>
+                <li>Casualty figures are approximate and often contested. Numbers shown here should not be cited as authoritative.</li>
+                <li>The "status" (active, escalating, etc.) is an AI judgement based on recent headlines, not a formal classification.</li>
+                <li>Travel alerts are indicative only — always check official government travel advisories before making travel decisions.</li>
+                <li>Conflict locations are approximate center points, not precise frontlines.</li>
+                <li>The connecting lines between parties are based on name matching and may be inaccurate or missing.</li>
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h4>Map disclaimer</h4>
+            <p>Map boundaries, names, and designations shown on this application are provided by third-party tile services and do not imply official endorsement or acceptance by the developer. Borders of countries and territories may not be depicted accurately. The placement of conflict markers does not represent territorial claims or political positions.</p>
+        </div>
+
+        <div class="about-section" style="border-top: 1px solid var(--border); padding-top: 14px;">
+            <p style="font-size: 12px; color: var(--text-muted);">Built by <a href="https://github.com/coder-kuttappan" target="_blank">coder-kuttappan</a></p>
+        </div>
+
         <div class="modal-actions">
-            <button class="btn-cancel" onclick="closeSettings()">Cancel</button>
-            <button class="btn-save" onclick="saveProfile()">Save</button>
+            <button class="btn-cancel" onclick="closeAbout()">Close</button>
         </div>
     </div>
 </div>
@@ -369,19 +469,40 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     const COUNTRY_COORDS = {
+        // Country names
         "russia": [61.5, 105.3], "ukraine": [48.4, 31.2],
-        "israel": [31.0, 34.8], "palestine": [31.9, 35.2], "hamas": [31.4, 34.3],
+        "israel": [31.0, 34.8], "palestine": [31.9, 35.2],
         "sudan": [15.5, 32.5], "myanmar": [19.8, 96.1], "ethiopia": [9.1, 40.5],
         "burkina faso": [12.3, -1.6], "mali": [17.6, -4.0], "niger": [17.6, 8.1],
-        "dr congo": [-4.0, 21.8], "drc": [-4.0, 21.8], "rwanda": [-1.9, 29.9],
+        "dr congo": [-4.0, 21.8], "drc": [-4.0, 21.8], "congo": [-4.0, 21.8],
+        "rwanda": [-1.9, 29.9],
         "chad": [15.5, 18.7], "south sudan": [6.9, 31.3],
-        "saudi arabia": [23.9, 45.1], "iran": [32.4, 53.7], "yemen": [15.6, 48.5],
+        "saudi arabia": [23.9, 45.1], "saudi": [23.9, 45.1],
+        "iran": [32.4, 53.7], "yemen": [15.6, 48.5],
         "syria": [35.0, 38.5], "iraq": [33.2, 43.7], "libya": [26.3, 17.2],
-        "somalia": [5.2, 46.2], "afghanistan": [33.9, 67.7], "pakistan": [30.4, 69.3],
-        "india": [20.6, 79.0], "china": [35.9, 104.2], "usa": [37.1, -95.7],
-        "turkey": [38.9, 35.2], "egypt": [26.8, 30.8], "nigeria": [9.1, 8.7],
+        "somalia": [5.2, 46.2], "afghan": [33.9, 67.7],
+        "pakistan": [30.4, 69.3],
+        "india": [20.6, 79.0], "china": [35.9, 104.2],
+        "united states": [37.1, -95.7], "usa": [37.1, -95.7],
+        "turkey": [38.9, 35.2], "türk": [38.9, 35.2],
+        "egypt": [26.8, 30.8], "nigeria": [9.1, 8.7],
         "cameroon": [7.4, 12.4], "mozambique": [-18.7, 35.5],
         "colombia": [4.6, -74.3], "mexico": [23.6, -102.6],
+        // Demonym/adjective forms (Gemini often returns "Russian Armed Forces" etc.)
+        "russian": [61.5, 105.3], "ukrainian": [48.4, 31.2],
+        "iranian": [32.4, 53.7], "iraqi": [33.2, 43.7],
+        "syrian": [35.0, 38.5], "israeli": [31.0, 34.8],
+        "palestinian": [31.9, 35.2],
+        "sudanese": [15.5, 32.5], "somali": [5.2, 46.2],
+        "ethiopian": [9.1, 40.5], "nigerian": [9.1, 8.7],
+        "congolese": [-4.0, 21.8],
+        "yemeni": [15.6, 48.5], "houthi": [15.6, 48.5],
+        "american": [37.1, -95.7],
+        // Common group names
+        "hamas": [31.4, 34.3], "hezbollah": [33.9, 35.5],
+        "wagner": [61.5, 105.3], "shabaab": [5.2, 46.2],
+        "taliban": [33.9, 67.7], "boko haram": [11.8, 13.2],
+        "oromo": [8.0, 39.0],
     };
 
     function findPartyCoords(partyName) {
@@ -412,6 +533,35 @@
         return points;
     }
 
+    function getDotClass(status) {
+        if (status === 'escalating') return 'dot-escalating';
+        if (status === 'ceasefire' || status === 'de-escalating') return 'dot-ceasefire';
+        return 'dot-active';
+    }
+
+    function getArcColor(status) {
+        if (status === 'escalating') return '#ff4444';
+        if (status === 'ceasefire' || status === 'de-escalating') return '#6DB8BA';
+        return '#E08A4A';
+    }
+
+    function isNewConflict(yearStarted) {
+        if (!yearStarted) return false;
+        const currentYear = new Date().getFullYear();
+        return (currentYear - yearStarted) < 1;
+    }
+
+    function formatTimestampUTC(ts) {
+        const d = new Date(ts * 1000);
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const day = d.getUTCDate();
+        const month = months[d.getUTCMonth()];
+        const year = d.getUTCFullYear();
+        const hours = String(d.getUTCHours()).padStart(2, '0');
+        const mins = String(d.getUTCMinutes()).padStart(2, '0');
+        return `Updated ${day} ${month} ${year}, ${hours}:${mins} UTC`;
+    }
+
     const map = L.map('map', {
         center: [20, 30],
         zoom: 3,
@@ -424,6 +574,7 @@
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
+        attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
     }).addTo(map);
 
     let markers = [];
@@ -432,7 +583,7 @@
 
     async function loadConflicts() {
         try {
-            const res = await fetch('/api/conflicts');
+            const res = await fetch('./conflicts.json');
             const data = await res.json();
             conflicts = data.conflicts || [];
 
@@ -440,12 +591,11 @@
 
             if (data.demo) {
                 document.getElementById('demo-badge').style.display = 'inline';
-                document.getElementById('last-updated').textContent = 'Sample data — add API key for live';
+                document.getElementById('last-updated').textContent = 'Sample data';
             } else {
                 const ts = data.timestamp;
                 if (ts) {
-                    const d = new Date(ts * 1000);
-                    document.getElementById('last-updated').textContent = `Updated ${d.toLocaleTimeString()}`;
+                    document.getElementById('last-updated').textContent = formatTimestampUTC(ts);
                 }
             }
 
@@ -453,7 +603,7 @@
             document.getElementById('loading').classList.add('hidden');
         } catch (err) {
             console.error('Failed to load conflicts:', err);
-            document.querySelector('#loading p').textContent = 'Failed to load data. Is the server running?';
+            document.querySelector('#loading p').textContent = 'Failed to load conflict data.';
         }
     }
 
@@ -467,9 +617,10 @@
             const loc = conflict.location;
             if (!loc || loc.lat == null || loc.lng == null) return;
 
+            const dotClass = getDotClass(conflict.status);
             const icon = L.divIcon({
                 className: 'conflict-marker',
-                html: '<div class="conflict-dot"></div>',
+                html: `<div class="conflict-dot ${dotClass}"></div>`,
                 iconSize: [14, 14],
                 iconAnchor: [7, 7],
             });
@@ -478,9 +629,17 @@
                 .addTo(map)
                 .on('click', () => showConflict(conflict));
 
-            marker.bindTooltip(conflict.name, { direction: 'top', offset: [0, -10] });
+            let tooltipText = conflict.name;
+            if (conflict.year_started) {
+                tooltipText += ` (since ${conflict.year_started})`;
+            }
+            if (isNewConflict(conflict.year_started)) {
+                tooltipText = 'NEW — ' + tooltipText;
+            }
+            marker.bindTooltip(tooltipText, { direction: 'top', offset: [0, -10] });
             markers.push(marker);
 
+            const arcColor = getArcColor(conflict.status);
             const partyCoords = conflict.parties
                 .map(p => findPartyCoords(p))
                 .filter(c => c !== null);
@@ -493,7 +652,7 @@
                     if (dist < 3) continue;
                     const points = arcPoints(from, to, 30);
                     const line = L.polyline(points, {
-                        color: '#ff4444', weight: 1.5, opacity: 0.25,
+                        color: arcColor, weight: 2, opacity: 0.45,
                         dashArray: '6, 8', interactive: false,
                     }).addTo(map);
                     arcLines.push(line);
@@ -514,11 +673,26 @@
         statusEl.textContent = conflict.status;
         statusEl.className = 'status-badge status-' + conflict.status;
 
+        const sinceEl = document.getElementById('conflict-since');
+        sinceEl.textContent = conflict.year_started ? `Since ${conflict.year_started}` : '';
+
+        const newEl = document.getElementById('conflict-new');
+        newEl.style.display = isNewConflict(conflict.year_started) ? 'inline' : 'none';
+
         const loc = conflict.location;
         document.getElementById('conflict-location').textContent =
             `${loc.region ? loc.region + ', ' : ''}${loc.country}`;
 
         document.getElementById('conflict-casualties').textContent = conflict.casualties || 'Unknown';
+
+        // Travel alert
+        const travelEl = document.getElementById('travel-alert');
+        if (conflict.travel_alert) {
+            document.getElementById('travel-alert-text').textContent = conflict.travel_alert;
+            travelEl.classList.add('visible');
+        } else {
+            travelEl.classList.remove('visible');
+        }
 
         const partiesEl = document.getElementById('conflict-parties');
         partiesEl.innerHTML = conflict.parties
@@ -527,49 +701,23 @@
 
         document.getElementById('conflict-summary').textContent = conflict.summary;
 
-        document.getElementById('global-impact-content').innerHTML = '';
-        document.getElementById('personal-impact-content').innerHTML = '';
-        document.getElementById('global-impact-section').classList.remove('visible');
-        document.getElementById('personal-impact-section').classList.remove('visible');
-        document.getElementById('impact-loading').style.display = 'block';
+        // Show global impact directly from JSON
+        const impactSection = document.getElementById('global-impact-section');
+        const impactContent = document.getElementById('global-impact-content');
+        if (conflict.global_impact) {
+            impactContent.innerHTML = formatMarkdown(conflict.global_impact);
+            impactSection.classList.add('visible');
+        } else {
+            impactSection.classList.remove('visible');
+        }
 
         document.getElementById('sidebar').classList.add('open');
         document.getElementById('sidebar-overlay').classList.add('open');
-        fetchImpact(conflict.id);
     }
 
     function closeSidebar() {
         document.getElementById('sidebar').classList.remove('open');
         document.getElementById('sidebar-overlay').classList.remove('open');
-    }
-
-    async function fetchImpact(conflictId) {
-        try {
-            const res = await fetch('/api/impact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ conflict_id: conflictId }),
-            });
-            const data = await res.json();
-            document.getElementById('impact-loading').style.display = 'none';
-
-            document.getElementById('global-impact-content').innerHTML = formatMarkdown(data.global_impact);
-            document.getElementById('global-impact-section').classList.add('visible');
-
-            const personalSection = document.getElementById('personal-impact-section');
-            const personalContent = document.getElementById('personal-impact-content');
-
-            if (data.personal_impact) {
-                personalContent.innerHTML = formatMarkdown(data.personal_impact);
-                personalSection.classList.add('visible');
-            } else if (!data.has_profile) {
-                personalContent.innerHTML =
-                    '<p class="profile-nudge">Set your location in <a onclick="openSettings()">Settings</a> for personalized impact.</p>';
-                personalSection.classList.add('visible');
-            }
-        } catch (err) {
-            document.getElementById('impact-loading').textContent = 'Failed to load impact analysis.';
-        }
     }
 
     function formatMarkdown(text) {
@@ -581,38 +729,14 @@
         return html;
     }
 
-    async function openSettings() {
-        try {
-            const res = await fetch('/api/profile');
-            const profile = await res.json();
-            document.getElementById('profile-location').value = profile.location || '';
-            document.getElementById('profile-travel').value = profile.travel || '';
-            document.getElementById('profile-interests').value = profile.interests || '';
-        } catch (e) {}
-        document.getElementById('settings-modal').classList.add('open');
-    }
-
-    function closeSettings() { document.getElementById('settings-modal').classList.remove('open'); }
-
-    async function saveProfile() {
-        const profile = {
-            location: document.getElementById('profile-location').value,
-            travel: document.getElementById('profile-travel').value,
-            interests: document.getElementById('profile-interests').value,
-        };
-        await fetch('/api/profile', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(profile),
-        });
-        closeSettings();
-    }
+    function openAbout() { document.getElementById('about-modal').classList.add('open'); }
+    function closeAbout() { document.getElementById('about-modal').classList.remove('open'); }
 
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { closeSidebar(); closeSettings(); }
+        if (e.key === 'Escape') { closeSidebar(); closeAbout(); }
     });
-    document.getElementById('settings-modal').addEventListener('click', e => {
-        if (e.target === e.currentTarget) closeSettings();
+    document.getElementById('about-modal').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeAbout();
     });
 
     loadConflicts();
