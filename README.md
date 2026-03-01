@@ -2,7 +2,7 @@
 
 A live dashboard tracking active armed conflicts around the world. No doomscrolling required.
 
-**[View the map](https://coder-kuttappan.github.io/whos-bombing-who/)** (or at `whosbombingwho.coderkuttappan.com` when DNS is configured)
+**[whosbombingwho.coderkuttappan.com](https://whosbombingwho.coderkuttappan.com)**
 
 ## How it works
 
@@ -61,4 +61,4 @@ MIT
 
 ---
 
-Built by [coder-kuttappan](https://github.com/coder-kuttappan)
+Built by [coder kuttappan](https://coderkuttappan.com)
