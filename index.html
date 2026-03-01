@@ -18,7 +18,7 @@
     <meta name="twitter:description" content="A live map of active armed conflicts around the world. Updated every 4 hours with AI-generated summaries.">
     <link rel="canonical" href="https://whosbombingwho.coderkuttappan.com">
     <meta name="google-site-verification" content="eNmP6IuKCpaQO_ytAbOWf5EhNzWJUzBv61nENES2N0s" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -591,7 +591,7 @@
 </div>
 
 <script data-goatcounter="https://coderkuttappan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
 <script>
     const COUNTRY_COORDS = {
         // Country names
@@ -834,7 +834,7 @@
 
         const partiesEl = document.getElementById('conflict-parties');
         partiesEl.innerHTML = conflict.parties
-            .map(p => `<span class="party-tag">${p}</span>`)
+            .map(p => `<span class="party-tag">${escapeHtml(p)}</span>`)
             .join('<span class="vs-label">vs</span>');
 
         document.getElementById('conflict-summary').textContent = conflict.summary;
@@ -858,8 +858,15 @@
         document.getElementById('sidebar-overlay').classList.remove('open');
     }
 
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function formatMarkdown(text) {
-        let html = text
+        let safe = text.replace(/<[^>]*>/g, '');
+        let html = safe
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/^\s*[-•]\s+(.+)$/gm, '<li>$1</li>')
             .replace(/\n/g, '');
