@@ -9,9 +9,9 @@ from flask import Flask, jsonify, render_template, request
 
 load_dotenv()
 
-app = Flask(__name__)
+BASE_DIR = Path(__file__).resolve().parent
 
-BASE_DIR = Path(__file__).parent
+app = Flask(__name__, template_folder=str(BASE_DIR / "templates"))
 CONFLICTS_FILE = BASE_DIR / "conflicts.json"
 PROFILE_FILE = BASE_DIR / "user_profile.json"
 STALE_SECONDS = 4 * 60 * 60  # 4 hours
@@ -104,10 +104,20 @@ DEMO_CONFLICTS = [
     },
 ]
 
-DEMO_IMPACT = {
-    "Russia-Ukraine War": "- **Energy prices**: European gas prices remain elevated, contributing to global energy cost pressures that affect fuel and electricity bills worldwide\n- **Food supply**: Ukraine is a major grain exporter — the conflict continues to impact global wheat and sunflower oil prices\n- **Flight routes**: Most airlines reroute around Ukrainian and parts of Russian airspace, adding 1-3 hours to many Europe-Asia flights\n- **Cybersecurity**: Increased state-sponsored cyber activity affects global infrastructure; heightened risk for financial and tech sectors\n- **Nuclear risk**: Low but non-zero escalation risk keeps geopolitical uncertainty elevated, affecting markets globally",
-    "Israel-Palestine Conflict": "- **Oil prices**: Regional instability affects oil market sentiment, though direct supply disruption has been limited\n- **Shipping**: Houthi attacks on Red Sea shipping (linked to the conflict) have disrupted the Suez Canal route, increasing shipping costs 2-3x on affected routes\n- **Flight routes**: Some airlines avoid overflying parts of the Middle East; routes through the region may see diversions\n- **Tech sector**: Israel is a major tech hub — prolonged conflict affects venture capital flows and startup activity in the region\n- **Humanitarian**: One of the worst humanitarian crises in recent history, with significant implications for international law and institutions",
-    "Sudan Civil War": "- **Refugee crisis**: Millions fleeing to neighboring countries (Chad, Egypt, South Sudan) straining regional resources and aid budgets\n- **Gold supply**: Sudan is Africa's third-largest gold producer — conflict disrupts supply chains\n- **Red Sea security**: Instability near Port Sudan could affect Red Sea shipping routes\n- **Humanitarian funding**: Diverts international aid resources from other crises\n- **Regional stability**: Risk of conflict spillover into neighboring countries, particularly Chad and South Sudan",
+DEMO_GLOBAL_IMPACT = {
+    "Russia-Ukraine War": "- **Energy**: European gas prices elevated, raising global fuel and electricity costs\n- **Food**: Ukraine is a major grain exporter — wheat and sunflower oil prices remain disrupted\n- **Flights**: Airlines reroute around Ukrainian/Russian airspace, adding 1-3 hours to Europe-Asia routes\n- **Cyber**: Increased state-sponsored attacks on financial and tech infrastructure",
+    "Israel-Palestine Conflict": "- **Shipping**: Houthi Red Sea attacks have disrupted Suez Canal route, shipping costs up 2-3x\n- **Oil**: Regional instability keeps oil market sentiment volatile\n- **Flights**: Some airlines avoid Middle East overflights\n- **Tech**: Israel is a major tech hub — VC flows and startup activity affected",
+    "Sudan Civil War": "- **Refugees**: Millions displaced into Chad, Egypt, South Sudan — straining regional resources\n- **Gold**: Sudan is Africa's 3rd largest producer — supply chains disrupted\n- **Red Sea**: Instability near Port Sudan could affect shipping routes",
+    "Myanmar Civil War": "- **Trade**: Disruption to China-Southeast Asia trade corridors\n- **Refugees**: Over a million displaced into Thailand, India, Bangladesh\n- **Drugs**: Conflict zones are major methamphetamine production areas",
+    "Ethiopian Internal Conflicts": "- **Horn of Africa**: Instability risks spillover into Somalia, Eritrea, Djibouti\n- **Aid**: Diverts humanitarian resources from other regional crises\n- **Coffee**: Ethiopia is a top producer — prolonged conflict could affect supply",
+    "Sahel Insurgency": "- **Migration**: Displacement fuels migration routes toward North Africa and Europe\n- **Resources**: Burkina Faso and Mali are gold and uranium producers\n- **Terrorism**: Expanding jihadist territory increases global security risk",
+    "DR Congo - M23 Conflict": "- **Minerals**: Eastern Congo supplies cobalt, coltan, tin critical for electronics and EVs\n- **Refugees**: Over a million displaced — regional humanitarian burden\n- **Diplomacy**: Rwanda-DRC tensions straining East African relations",
+}
+
+DEMO_PERSONAL_IMPACT = {
+    "Russia-Ukraine War": "- **Your electricity bill** may be higher due to elevated European gas prices rippling globally\n- **Flights to Europe** may cost more and take longer due to airspace closures\n- **Wheat-based food prices** (bread, pasta) remain above pre-war levels",
+    "Israel-Palestine Conflict": "- **Online shopping** and imports may cost more due to Red Sea shipping disruptions\n- **Flights through Middle East** (Dubai, Doha transit) may see occasional rerouting\n- **Fuel prices** are sensitive to any regional escalation",
+    "Sudan Civil War": "- **Gold prices** partly influenced by Sudan supply disruption\n- **Humanitarian fundraising** — you may see more appeals from aid organizations",
 }
 
 
@@ -240,20 +250,45 @@ def api_impact():
     if not conflict:
         return jsonify({"error": "Conflict not found"}), 404
 
-    # Demo mode — return canned impact or generic message
-    if DEMO_MODE:
-        impact = DEMO_IMPACT.get(
-            conflict["name"],
-            f"- **Regional instability**: The {conflict['name']} affects regional security and may impact travel routes\n"
-            f"- **Economic effects**: Potential disruption to local and regional trade\n"
-            f"- **Humanitarian**: Displacement and humanitarian needs strain international aid resources\n"
-            f"- **Geopolitical**: Shifts in alliances and international relations may have broader implications"
-        )
-        return jsonify({"impact": impact})
-
     profile = load_profile()
-    profile_text = ""
-    if profile:
+    has_profile = profile and any(profile.get(k) for k in ("location", "travel", "interests"))
+
+    # Demo mode
+    if DEMO_MODE:
+        global_impact = DEMO_GLOBAL_IMPACT.get(
+            conflict["name"],
+            f"- **Regional instability**: Affects regional security and trade\n"
+            f"- **Humanitarian**: Displacement strains international aid resources\n"
+            f"- **Geopolitical**: Shifts in alliances may have broader implications"
+        )
+        personal = None
+        if has_profile:
+            personal = DEMO_PERSONAL_IMPACT.get(conflict["name"])
+        return jsonify({
+            "global_impact": global_impact,
+            "personal_impact": personal,
+            "has_profile": has_profile,
+        })
+
+    # Live mode — two separate LLM calls
+    conflict_context = (
+        f"Conflict: {conflict['name']}\n"
+        f"Parties: {', '.join(conflict['parties'])}\n"
+        f"Location: {conflict['location']['country']}, {conflict['location'].get('region', '')}\n"
+        f"Status: {conflict['status']}\n"
+        f"Summary: {conflict['summary']}"
+    )
+
+    global_prompt = f"""{conflict_context}
+
+What is the global impact of this conflict? Cover: economic effects (commodity prices, trade, supply chains), transport disruptions (flights, shipping), humanitarian consequences, and geopolitical implications.
+
+3-4 bullet points max. Be specific and factual, not alarmist. Start each bullet with a bold topic label."""
+
+    global_impact = call_llm(global_prompt)
+
+    personal = None
+    if has_profile:
         parts = []
         if profile.get("location"):
             parts.append(f"Lives in: {profile['location']}")
@@ -263,24 +298,22 @@ def api_impact():
             parts.append(f"Interests/concerns: {profile['interests']}")
         profile_text = "\n".join(parts)
 
-    prompt = f"""Analyze how this conflict might personally affect someone.
+        personal_prompt = f"""{conflict_context}
 
-Conflict: {conflict['name']}
-Parties: {', '.join(conflict['parties'])}
-Location: {conflict['location']['country']}, {conflict['location'].get('region', '')}
-Status: {conflict['status']}
-Summary: {conflict['summary']}
-"""
-    if profile_text:
-        prompt += f"\nUser's context:\n{profile_text}\n"
-        prompt += "\nProvide a personalized impact analysis covering: flight route disruptions, economic impacts (prices, supply chains), regional stability implications, and any direct relevance to their location or travel plans."
-    else:
-        prompt += "\nNo user profile available. Provide a general impact analysis covering: global economic effects, flight route disruptions, humanitarian implications, and potential escalation risks."
+This person's context:
+{profile_text}
 
-    prompt += "\n\nKeep it concise — 3-5 bullet points max. Be specific and practical, not alarmist."
+How might this conflict specifically affect THIS person? Think about: prices they pay, flights they might take, supply chains for things they care about, safety of places they live or travel to.
 
-    impact_text = call_llm(prompt)
-    return jsonify({"impact": impact_text})
+2-3 bullet points max. Be concrete and specific to their situation. If there's no real connection, say so honestly — don't stretch."""
+
+        personal = call_llm(personal_prompt)
+
+    return jsonify({
+        "global_impact": global_impact,
+        "personal_impact": personal,
+        "has_profile": has_profile,
+    })
 
 
 @app.route("/api/profile", methods=["GET"])

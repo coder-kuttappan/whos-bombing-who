@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+cd /Users/sharathcgeorge/projects/whos-bombing-who
 
 # Install dependencies if needed
 pip3 install -q -r requirements.txt 2>/dev/null
