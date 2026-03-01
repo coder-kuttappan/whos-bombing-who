@@ -271,6 +271,51 @@
         }
         .header-btn:hover { background: var(--accent-hover); }
 
+        /* Mobile menu button + dropdown */
+        #mobile-menu-btn {
+            display: none;
+            background: var(--accent-light); border: none;
+            color: var(--accent); font-weight: 600;
+            width: 32px; height: 32px; border-radius: var(--radius-sm);
+            cursor: pointer; font-size: 16px; font-family: inherit;
+            align-items: center; justify-content: center;
+        }
+        #mobile-menu {
+            display: none;
+            position: fixed; top: 52px; right: 8px;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: var(--radius-sm); z-index: 1001;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            padding: 14px 16px; min-width: 200px;
+        }
+        #mobile-menu.open { display: block; }
+        .mobile-menu-item {
+            display: block; width: 100%; text-align: left;
+            background: none; border: none; color: var(--text);
+            font-size: 14px; font-weight: 500; font-family: inherit;
+            padding: 10px 8px; cursor: pointer;
+            border-radius: 8px;
+        }
+        .mobile-menu-item:active { background: var(--card); }
+        .mobile-menu-divider {
+            border-top: 1px solid var(--border);
+            margin: 8px 0;
+        }
+        .mobile-legend-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 4px 8px; font-size: 12px; color: var(--text-secondary);
+        }
+        .mobile-legend-dot {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+        }
+        .mobile-legend-dot.escalating { background: #ff2d2d; }
+        .mobile-legend-dot.active { background: #E08A4A; }
+        .mobile-legend-dot.ceasefire { background: #6DB8BA; }
+        .mobile-legend-note {
+            font-size: 10px; color: var(--text-muted); font-style: italic;
+            padding: 4px 8px;
+        }
+
         /* Loading */
         #loading {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -359,9 +404,12 @@
             #header h1 { font-size: 14px; }
             #tagline { display: none; }
             #header-right { gap: 8px; }
-            #header-right .header-btn { padding: 5px 10px; font-size: 12px; }
+            #header-right .header-btn { display: none; }
             #last-updated { font-size: 10px; }
             #conflict-count { font-size: 11px; }
+
+            #mobile-menu-btn { display: flex; }
+            #legend { display: none; }
 
             #sidebar {
                 width: 100vw; right: -100vw;
@@ -369,15 +417,15 @@
             }
             #sidebar.open { right: 0; }
 
-            #legend {
-                bottom: auto; top: 60px; right: 8px;
-                padding: 8px 12px;
-            }
-
             #map-disclaimer {
                 bottom: 8px; font-size: 9px;
                 padding: 4px 10px;
                 max-width: 90vw; white-space: normal; text-align: center;
+            }
+
+            .leaflet-control-zoom {
+                margin-left: 10px !important;
+                margin-bottom: 40px !important;
             }
 
             .party-tag { font-size: 12px; padding: 4px 10px; }
@@ -408,7 +456,18 @@
         <span id="conflict-count"></span>
         <span id="last-updated"></span>
         <button class="header-btn" onclick="openAbout()">About</button>
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()">&#8942;</button>
     </div>
+</div>
+
+<div id="mobile-menu">
+    <button class="mobile-menu-item" onclick="openAbout(); closeMobileMenu();">About</button>
+    <div class="mobile-menu-divider"></div>
+    <div style="padding: 4px 8px 2px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 600;">Legend</div>
+    <div class="mobile-legend-item"><span class="mobile-legend-dot escalating"></span> Escalating</div>
+    <div class="mobile-legend-item"><span class="mobile-legend-dot active"></span> Active</div>
+    <div class="mobile-legend-item"><span class="mobile-legend-dot ceasefire"></span> Ceasefire / De-escalating</div>
+    <div class="mobile-legend-note">Pulse speed = intensity</div>
 </div>
 
 <div id="map"></div>
@@ -790,8 +849,22 @@
     function openAbout() { document.getElementById('about-modal').classList.add('open'); }
     function closeAbout() { document.getElementById('about-modal').classList.remove('open'); }
 
+    function toggleMobileMenu() {
+        document.getElementById('mobile-menu').classList.toggle('open');
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobile-menu').classList.remove('open');
+    }
+
     document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { closeSidebar(); closeAbout(); }
+        if (e.key === 'Escape') { closeSidebar(); closeAbout(); closeMobileMenu(); }
+    });
+    document.addEventListener('click', e => {
+        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('mobile-menu-btn');
+        if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) {
+            closeMobileMenu();
+        }
     });
     document.getElementById('about-modal').addEventListener('click', e => {
         if (e.target === e.currentTarget) closeAbout();
