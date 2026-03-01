@@ -276,12 +276,12 @@
             display: none;
             background: var(--accent-light); border: none;
             color: var(--accent);
-            width: 32px; height: 32px; border-radius: var(--radius-sm);
+            width: 44px; height: 44px; border-radius: var(--radius-sm);
             cursor: pointer; font-family: inherit;
             align-items: center; justify-content: center;
-            margin-left: auto;
+            margin-left: auto; flex-shrink: 0;
         }
-        #mobile-menu-btn svg { width: 18px; height: 18px; }
+        #mobile-menu-btn svg { width: 20px; height: 20px; }
         #mobile-menu {
             display: none;
             position: fixed; top: 52px; right: 8px;
@@ -366,7 +366,7 @@
         .about-section a { color: var(--accent); text-decoration: none; }
         .about-section a:hover { text-decoration: underline; }
         .about-section p {
-            font-size: 12px; color: var(--text-muted); line-height: 1.7;
+            font-size: 13px; color: var(--text-secondary); line-height: 1.7;
             margin-bottom: 8px;
         }
         .btn-cancel {
@@ -401,7 +401,7 @@
 
         /* Mobile responsive */
         @media (max-width: 768px) {
-            #header { height: auto; padding: 10px 14px; flex-wrap: wrap; gap: 4px; }
+            #header { height: auto; padding: 10px 8px 10px 14px; flex-wrap: wrap; gap: 4px; }
             #header-left { gap: 8px; }
             #header h1 { font-size: 14px; }
             #tagline { display: none; }
@@ -516,7 +516,7 @@
     </div>
 </div>
 
-<div id="map-disclaimer">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--text-muted);">OpenStreetMap</a>. Boundaries are approximate and do not imply official endorsement. Conflict locations are AI-estimated.</div>
+<div id="map-disclaimer">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--text-muted);">OpenStreetMap</a>. Boundaries are approximate and do not imply official endorsement. Conflict locations are AI-estimated. · <a href="https://coderkuttappan.com" target="_blank" style="color:var(--text-muted);">coderkuttappan.com</a></div>
 
 <div id="loading">
     <div class="spinner"></div>
@@ -526,7 +526,7 @@
 <div id="about-modal">
     <div class="modal-content" style="max-width: 520px; max-height: 85vh; overflow-y: auto;">
         <h2>About This App</h2>
-        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 20px;">
             A dashboard tracking active armed conflicts around the world. Updated every 4 hours.
         </p>
 
@@ -575,7 +575,7 @@
         </div>
 
         <div class="about-section" style="border-top: 1px solid var(--border); padding-top: 14px;">
-            <p style="font-size: 12px; color: var(--text-muted);">Built by <a href="https://github.com/coder-kuttappan" target="_blank">coder-kuttappan</a></p>
+            <p style="font-size: 12px; color: var(--text-secondary);">Built by <a href="https://coderkuttappan.com" target="_blank">coder kuttappan</a> · <a href="https://github.com/coder-kuttappan/whos-bombing-who" target="_blank">GitHub</a></p>
         </div>
 
         <div class="modal-actions">
