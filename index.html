@@ -275,11 +275,13 @@
         #mobile-menu-btn {
             display: none;
             background: var(--accent-light); border: none;
-            color: var(--accent); font-weight: 600;
+            color: var(--accent);
             width: 32px; height: 32px; border-radius: var(--radius-sm);
-            cursor: pointer; font-size: 16px; font-family: inherit;
+            cursor: pointer; font-family: inherit;
             align-items: center; justify-content: center;
+            margin-left: auto;
         }
+        #mobile-menu-btn svg { width: 18px; height: 18px; }
         #mobile-menu {
             display: none;
             position: fixed; top: 52px; right: 8px;
@@ -456,7 +458,7 @@
         <span id="conflict-count"></span>
         <span id="last-updated"></span>
         <button class="header-btn" onclick="openAbout()">About</button>
-        <button id="mobile-menu-btn" onclick="toggleMobileMenu()">&#8942;</button>
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
 </div>
 
