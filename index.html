@@ -412,8 +412,8 @@
             #header h1 { font-size: 14px; white-space: nowrap; }
             #tagline { display: none; }
             #header-right { gap: 8px; flex-shrink: 0; }
-            #last-updated { font-size: 10px; }
-            #conflict-count { font-size: 11px; }
+            #last-updated { display: none; }
+            #conflict-count { display: none; }
 
             #menu-btn { width: 44px; height: 44px; }
             #menu-btn svg { width: 20px; height: 20px; }
@@ -468,6 +468,8 @@
 </div>
 
 <div id="app-menu">
+    <div id="menu-stats" style="padding: 8px 12px; font-size: 12px; color: var(--text-secondary); line-height: 1.6; display: none;"></div>
+    <div id="menu-stats-divider" class="menu-divider" style="display: none;"></div>
     <button class="menu-item" onclick="openAbout(); closeMenu();">About</button>
     <a class="menu-item" href="https://coderkuttappan.com" target="_blank">coderkuttappan.com</a>
     <div class="menu-divider"></div>
@@ -735,6 +737,17 @@
                 if (ts) {
                     document.getElementById('last-updated').textContent = formatTimestampUTC(ts);
                 }
+            }
+
+            // Populate mobile menu stats (hidden on desktop via CSS)
+            if (window.innerWidth <= 768) {
+                const statsEl = document.getElementById('menu-stats');
+                const statsDivider = document.getElementById('menu-stats-divider');
+                const count = document.getElementById('conflict-count').textContent;
+                const updated = document.getElementById('last-updated').textContent;
+                statsEl.textContent = count + (updated ? ' · ' + updated : '');
+                statsEl.style.display = 'block';
+                statsDivider.style.display = 'block';
             }
 
             renderMarkers();
