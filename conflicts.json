@@ -1,5 +1,605 @@
 {
-  "timestamp": 1774124933.1268616,
+  "timestamp": 1774146227.5887833,
   "demo": false,
-  "conflicts": []
+  "conflicts": [
+    {
+      "name": "Iran-Israel Direct Conflict",
+      "parties": [
+        "Iran",
+        "Israel"
+      ],
+      "location": {
+        "country": "Iran/Israel",
+        "region": "Middle East",
+        "lat": 32.5,
+        "lng": 45.0
+      },
+      "status": "escalating",
+      "casualties": "Over 100 injured in Israel; unknown in Iran.",
+      "summary": "Iran launched unprecedented missile and drone strikes directly into Israel, targeting cities and military sites, in retaliation for an alleged Israeli attack on its consulate in Syria. Israel has since conducted retaliatory strikes within Iran.",
+      "year_started": 2024,
+      "travel_alert": "Airlines rerouting around Iranian and Israeli airspace; potential for wider air travel disruption in the Middle East.",
+      "id": 0,
+      "global_impact": "- **Geopolitical**: Risks regional war, drawing in major powers like the US, impacting global security architecture and alliance dynamics in the Middle East.\n- **Energy**: Heightened risk to oil and gas production and transit in the Middle East, potentially leading to significant spikes in global energy prices and market volatility.\n- **Shipping**: Increased insecurity in critical waterways like the Strait of Hormuz, impacting global oil tanker traffic and raising shipping insurance costs for vessels in the region.\n- **Economic**: Could trigger a flight to safe-haven assets, disrupt global financial markets due to uncertainty, and impact supply chains for goods transiting the region."
+    },
+    {
+      "name": "US-Iran Confrontation",
+      "parties": [
+        "United States",
+        "Iran"
+      ],
+      "location": {
+        "country": "Middle East",
+        "region": "Persian Gulf / Red Sea",
+        "lat": 26.5667,
+        "lng": 56.25
+      },
+      "status": "active",
+      "casualties": "Unknown; US bases sustained $800M damage from previous retaliatory strikes by Iran.",
+      "summary": "The US has conducted strikes against Iranian-backed groups and infrastructure in the region, while Iran has threatened vital shipping lanes like the Strait of Hormuz, leading to ongoing military posturing and limited engagements.",
+      "year_started": 2024,
+      "travel_alert": "Increased maritime security risks in the Strait of Hormuz and Gulf of Oman, potentially affecting global oil shipping.",
+      "id": 1,
+      "global_impact": "- **Energy**: Continued risk of disruption to oil and gas flows through the Strait of Hormuz, a choke point for about 20% of global oil supply, sustaining higher energy prices and market uncertainty.\n- **Shipping**: Naval presence and threats to shipping increase insurance premiums and rerouting costs for commercial vessels, particularly for oil and gas tankers transiting the Persian Gulf.\n- **Geopolitical**: Perpetuates regional instability and proxy conflicts, complicating international diplomacy and efforts to de-escalate tensions in the broader Middle East.\n- **Economic**: Disruptions to trade routes and potential for escalation could dampen global economic growth forecasts and increase investment risk in the region."
+    },
+    {
+      "name": "Russia-Ukraine War",
+      "parties": [
+        "Russian Federation",
+        "Ukraine"
+      ],
+      "location": {
+        "country": "Ukraine",
+        "region": "Eastern Europe",
+        "lat": 50.4501,
+        "lng": 30.5234
+      },
+      "status": "active",
+      "casualties": "Hundreds of thousands killed or injured.",
+      "summary": "Russia continues its full-scale invasion of Ukraine, launching drone and missile attacks across the country and engaging in intense ground combat, while Ukraine defends its territory with substantial international military and financial aid.",
+      "year_started": 2022,
+      "travel_alert": "Ukrainian airspace is closed to civilian flights. Shipping in the Black Sea remains severely impacted and hazardous.",
+      "id": 2,
+      "global_impact": "- **Food Security**: Ongoing disruption to global grain and sunflower oil supplies from Ukraine and Russia, contributing to elevated food prices and food insecurity, particularly in developing nations.\n- **Energy**: Continues to impact global natural gas markets, especially in Europe, and affects global oil prices due to sanctions on Russian energy and supply chain realignments.\n- **Geopolitical**: Reshapes the European security architecture, strengthens NATO, and fuels an ongoing geopolitical rivalry between Russia and Western powers, impacting global military spending and alliances.\n- **Supply Chains**: Disruptions to key industrial raw materials (e.g., neon, palladium, nickel) from Russia and Ukraine impact various global manufacturing sectors, from semiconductors to automotive."
+    },
+    {
+      "name": "Israel-Syria Conflict",
+      "parties": [
+        "Israel Defense Forces",
+        "Syrian Armed Forces",
+        "Iran-backed militias in Syria"
+      ],
+      "location": {
+        "country": "Syria",
+        "region": "Middle East",
+        "lat": 33.5132,
+        "lng": 36.2913
+      },
+      "status": "active",
+      "casualties": "Unknown, but regular fatalities from airstrikes.",
+      "summary": "Israel regularly conducts airstrikes in Syria, targeting Iranian military assets, Hezbollah weapon transfers, and Syrian government military sites, aiming to prevent Iranian entrenchment near its borders.",
+      "year_started": 2013,
+      "travel_alert": null,
+      "id": 3,
+      "global_impact": "- **Geopolitical**: Heightens regional tensions and risks drawing other actors into the broader Israel-Iran proxy conflict, further destabilizing an already volatile Middle East.\n- **Humanitarian**: Contributes to the protracted humanitarian crisis in Syria, exacerbating displacement and hindering reconstruction efforts in areas affected by strikes.\n- **Security**: Maintains an active front in the Syrian conflict, sustaining a complex web of regional and international military involvement and counter-terrorism operations."
+    },
+    {
+      "name": "Afghanistan-Pakistan Border Conflict",
+      "parties": [
+        "Pakistan Armed Forces",
+        "Afghan Taliban",
+        "Tehrik-i-Taliban Pakistan (TTP)"
+      ],
+      "location": {
+        "country": "Afghanistan/Pakistan",
+        "region": "South Asia",
+        "lat": 33.8,
+        "lng": 70.0
+      },
+      "status": "active",
+      "casualties": "Unknown, ongoing clashes and attacks.",
+      "summary": "Tensions remain high along the Afghanistan-Pakistan border due to cross-border attacks by the TTP, which Pakistan claims operates from Afghan soil, leading to retaliatory strikes and strained diplomatic relations.",
+      "year_started": 2021,
+      "travel_alert": null,
+      "id": 4,
+      "global_impact": "- **Humanitarian**: Leads to forced displacement and exacerbates humanitarian needs in border regions of both Afghanistan and Pakistan, affecting access to aid and essential services.\n- **Geopolitical**: Strains relations between two nuclear-armed neighbors, potentially undermining regional counter-terrorism efforts and stability in South Asia.\n- **Trade**: Cross-border hostilities can disrupt crucial trade routes between Afghanistan and Pakistan, impacting regional commerce and the flow of goods to landlocked Afghanistan."
+    },
+    {
+      "name": "Yemen Civil War & Red Sea Crisis",
+      "parties": [
+        "Houthi movement (Ansar Allah)",
+        "Yemeni government",
+        "Saudi-led coalition",
+        "United States",
+        "United Kingdom"
+      ],
+      "location": {
+        "country": "Yemen",
+        "region": "Middle East",
+        "lat": 15.5527,
+        "lng": 48.5164
+      },
+      "status": "active",
+      "casualties": "Hundreds of thousands (Yemen Civil War); unknown for Red Sea crisis directly.",
+      "summary": "The Houthi movement continues its civil war efforts in Yemen and has escalated attacks on international shipping in the Red Sea in solidarity with Palestinians, prompting retaliatory strikes from a US-UK led coalition.",
+      "year_started": 2014,
+      "travel_alert": "Severe disruption to shipping in the Red Sea and Gulf of Aden, necessitating re-routing for many vessels.",
+      "id": 5,
+      "global_impact": "- **Shipping**: Extensive disruptions to global maritime trade through the Suez Canal and Red Sea, forcing rerouting via the Cape of Good Hope, significantly increasing transit times, fuel costs, and insurance premiums for container ships and tankers.\n- **Supply Chains**: Extended shipping times lead to delays in global supply chains for consumer goods, manufactured components, and energy products, impacting inventory management and consumer prices.\n- **Energy**: Higher shipping costs and risks in the Red Sea directly impact the transport of oil and LNG, contributing to potential upward pressure on global energy prices.\n- **Geopolitical**: Escalates regional tensions, draws major naval powers into direct military engagements, and complicates international efforts to achieve peace in Yemen and broader Middle East stability."
+    },
+    {
+      "name": "Sudan Civil War",
+      "parties": [
+        "Sudanese Armed Forces (SAF)",
+        "Rapid Support Forces (RSF)"
+      ],
+      "location": {
+        "country": "Sudan",
+        "region": "East Africa",
+        "lat": 15.5006,
+        "lng": 32.5599
+      },
+      "status": "active",
+      "casualties": "Tens of thousands killed, millions displaced.",
+      "summary": "A devastating civil war between the SAF and RSF continues across Sudan, causing widespread destruction, a dire humanitarian crisis, and mass displacement, with attacks on civilian infrastructure and hospitals reported.",
+      "year_started": 2023,
+      "travel_alert": null,
+      "id": 6,
+      "global_impact": "- **Humanitarian**: Catastrophic humanitarian crisis with widespread displacement (over 8 million people), severe food insecurity, and a collapse of healthcare systems, creating one of the world's largest internal displacement crises and generating refugees for neighboring countries.\n- **Geopolitical**: Risks regional destabilization, drawing in neighboring countries and external actors, potentially leading to new proxy conflicts and exacerbating existing regional fragilities.\n- **Economic**: Disrupts agricultural production and trade within Sudan and affects regional economic stability, particularly for countries dependent on trade routes through Sudan.\n- **Migration**: Large-scale internal displacement and refugee flows into Chad, South Sudan, Egypt, and Ethiopia strain resources in already vulnerable host communities and create international migration challenges."
+    },
+    {
+      "name": "Israel-Hezbollah Cross-Border Conflict",
+      "parties": [
+        "Israel Defense Forces (IDF)",
+        "Hezbollah"
+      ],
+      "location": {
+        "country": "Lebanon/Israel",
+        "region": "Middle East",
+        "lat": 33.8938,
+        "lng": 35.5018
+      },
+      "status": "escalating",
+      "casualties": "Hundreds killed (Hezbollah, Lebanese civilians, Israeli soldiers/civilians).",
+      "summary": "Intense cross-border hostilities between Israel and Hezbollah have escalated significantly, with daily rocket, drone, and missile attacks from Lebanon met by Israeli airstrikes and artillery fire, raising fears of a full-scale regional war.",
+      "year_started": 2023,
+      "travel_alert": null,
+      "id": 7,
+      "global_impact": "- **Geopolitical**: High risk of escalating into a full-scale war between Israel and Hezbollah, potentially drawing Iran and other regional or international actors, severely destabilizing the Middle East.\n- **Humanitarian**: Causes significant displacement of populations on both sides of the border, exacerbates Lebanon's existing economic and political crises, and threatens widespread civilian harm.\n- **Energy**: Escalation would increase the risk of disruptions to Middle Eastern oil and gas infrastructure and transit routes, likely causing a sharp rise in global energy prices.\n- **Shipping**: Potential for expanded maritime no-go zones or increased security concerns in the Eastern Mediterranean, impacting regional shipping and trade routes."
+    },
+    {
+      "name": "Israel-Hamas War (Gaza)",
+      "parties": [
+        "Israel Defense Forces (IDF)",
+        "Hamas",
+        "Palestinian Islamic Jihad"
+      ],
+      "location": {
+        "country": "Palestine/Israel",
+        "region": "Middle East",
+        "lat": 31.5,
+        "lng": 34.4667
+      },
+      "status": "active",
+      "casualties": "Over 35,000 Palestinians killed, over 1,500 Israelis killed.",
+      "summary": "The Israeli military continues extensive operations in the Gaza Strip against Hamas, leading to massive destruction, a severe humanitarian crisis, and widespread displacement of the Palestinian population.",
+      "year_started": 2023,
+      "travel_alert": null,
+      "id": 8,
+      "global_impact": "- **Humanitarian**: Dire humanitarian crisis in Gaza with widespread civilian casualties, mass displacement, severe food insecurity, and collapse of essential services, requiring massive international aid efforts.\n- **Geopolitical**: Fuels regional instability, galvanizes anti-Israel sentiment globally, and complicates international diplomacy efforts for a two-state solution, impacting global security perceptions.\n- **Economic**: Disrupts local economies, especially in Israel and Palestine, and has broader regional economic impacts due to security concerns and reduced tourism.\n- **Societal**: Intensifies global political polarization, contributing to increased protests, hate speech, and security concerns in diverse communities worldwide."
+    },
+    {
+      "name": "Farmer-Herder Conflict in Nigeria",
+      "parties": [
+        "Ethnic/communal militias",
+        "Nigerian Security Forces"
+      ],
+      "location": {
+        "country": "Nigeria",
+        "region": "West Africa",
+        "lat": 9.8967,
+        "lng": 8.8583
+      },
+      "status": "active",
+      "casualties": "Thousands killed annually.",
+      "summary": "Persistent deadly clashes between predominantly Muslim Fulani herders and largely Christian farmers continue across central Nigeria, fueled by disputes over land and resources, exacerbated by ethnic and religious tensions.",
+      "year_started": 2000,
+      "travel_alert": null,
+      "id": 9,
+      "global_impact": "- **Humanitarian**: Leads to internal displacement, loss of livelihoods, and food insecurity, particularly in Nigeria's Middle Belt, exacerbating existing humanitarian challenges.\n- **Food Security**: Disrupts agricultural activities and food production in Nigeria, potentially impacting national food supply and contributing to regional food price volatility.\n- **Geopolitical**: While primarily internal, persistent instability in Nigeria, Africa's most populous nation, has regional implications for migration, trade, and security cooperation."
+    },
+    {
+      "name": "Oromia & Amhara Conflicts (Ethiopia)",
+      "parties": [
+        "Ethiopian Federal Government",
+        "Oromo Liberation Army (OLA)",
+        "Fano militias (Amhara)"
+      ],
+      "location": {
+        "country": "Ethiopia",
+        "region": "East Africa",
+        "lat": 9.0192,
+        "lng": 38.7525
+      },
+      "status": "active",
+      "casualties": "Thousands killed.",
+      "summary": "Armed conflicts persist in Ethiopia's Oromia and Amhara regions, involving federal forces battling the Oromo Liberation Army and Amhara Fano militias, contributing to ongoing instability and displacement despite a truce in Tigray.",
+      "year_started": 2020,
+      "travel_alert": null,
+      "id": 10,
+      "global_impact": "- **Humanitarian**: Causes significant internal displacement, food insecurity, and hinders humanitarian access in affected regions, exacerbating the overall humanitarian situation in Ethiopia.\n- **Regional Stability**: Prolonged instability in Ethiopia, a major regional power, risks wider regional destabilization, impacting neighboring countries through refugee flows and geopolitical shifts.\n- **Economic**: Disrupts agricultural production and trade, deters foreign investment, and diverts national resources, impacting Ethiopia's economic development and contributing to regional economic fragility."
+    },
+    {
+      "name": "Eastern Congo Conflicts (DRC)",
+      "parties": [
+        "Congolese Armed Forces (FARDC)",
+        "M23 rebels",
+        "Allied Democratic Forces (ADF)",
+        "CODECO",
+        "Various other armed groups",
+        "EAC Regional Force",
+        "MONUSCO"
+      ],
+      "location": {
+        "country": "Democratic Republic of Congo",
+        "region": "Central Africa",
+        "lat": -1.6783,
+        "lng": 29.2292
+      },
+      "status": "active",
+      "casualties": "Hundreds of thousands (total over decades).",
+      "summary": "Eastern DRC remains plagued by multiple armed conflicts involving numerous rebel groups and foreign forces, leading to widespread violence, mass displacement, and a severe humanitarian crisis despite regional and UN peacekeeping efforts.",
+      "year_started": 1996,
+      "travel_alert": null,
+      "id": 11,
+      "global_impact": "- **Humanitarian**: Generates one of the world's largest and most protracted humanitarian crises, with millions internally displaced, widespread food insecurity, and egregious human rights abuses, including sexual violence.\n- **Supply Chains**: Disrupts supply chains for critical minerals (e.g., cobalt, coltan, tin) from eastern DRC, which are vital for global electronics and electric vehicle industries, leading to price volatility and ethical sourcing concerns.\n- **Regional Stability**: Fuels regional instability, drawing in neighboring countries and external forces, leading to cross-border tensions, refugee flows, and complex geopolitical dynamics in the Great Lakes region.\n- **Economic**: Perpetuates resource extraction conflicts, hindering economic development in the DRC and leading to illicit trade of minerals that funds armed groups."
+    },
+    {
+      "name": "Myanmar Civil War (Post-Coup)",
+      "parties": [
+        "State Administration Council (military junta)",
+        "People's Defense Force (PDF)",
+        "Ethnic Armed Organizations (EAOs)"
+      ],
+      "location": {
+        "country": "Myanmar",
+        "region": "Southeast Asia",
+        "lat": 19.7633,
+        "lng": 96.0772
+      },
+      "status": "active",
+      "casualties": "Thousands killed, millions displaced.",
+      "summary": "A nationwide civil war continues following the 2021 military coup, with the junta battling a broad alliance of resistance forces and ethnic armed organizations that are making significant territorial gains, leading to widespread atrocities.",
+      "year_started": 2021,
+      "travel_alert": null,
+      "id": 12,
+      "global_impact": "- **Humanitarian**: Severe humanitarian crisis with widespread displacement, food insecurity, and attacks on civilians, necessitating significant international aid and raising refugee concerns for neighboring countries.\n- **Geopolitical**: Creates regional instability in Southeast Asia, complicates ASEAN's diplomatic efforts, and draws in external powers like China, impacting regional security dynamics.\n- **Supply Chains**: Disruptions to local manufacturing and trade, particularly in textiles and agriculture, impact regional supply chains and foreign investment in Myanmar.\n- **Economic**: Prolonged conflict severely damages Myanmar's economy, leading to a collapse of public services, increased poverty, and disruption of key industries, with ripple effects on regional trade partners."
+    },
+    {
+      "name": "Anglophone Crisis (Cameroon)",
+      "parties": [
+        "Cameroonian Armed Forces",
+        "Ambazonian Separatists"
+      ],
+      "location": {
+        "country": "Cameroon",
+        "region": "Central Africa",
+        "lat": 5.968,
+        "lng": 10.15
+      },
+      "status": "active",
+      "casualties": "Thousands killed.",
+      "summary": "Separatist groups in Cameroon's English-speaking Northwest and Southwest regions continue their armed struggle for independence against government forces, resulting in ongoing violence, human rights abuses, and a humanitarian crisis.",
+      "year_started": 2017,
+      "travel_alert": null,
+      "id": 13,
+      "global_impact": "- **Humanitarian**: Leads to significant internal displacement and refugee flows into Nigeria, exacerbates food insecurity, and disrupts education and healthcare services in the affected regions.\n- **Regional Stability**: Persistent instability in Cameroon, a country bordering several fragile states, has the potential to destabilize the broader Central African region through refugee movements and cross-border criminal activities.\n- **Economic**: Disrupts agriculture, commerce, and oil production in the Anglophone regions, impacting Cameroon's national economy and deterring foreign investment."
+    },
+    {
+      "name": "Cabo Delgado Insurgency (Mozambique)",
+      "parties": [
+        "Mozambican Armed Forces",
+        "Ansar al-Sunna (ASWJ/ISIS-Mozambique)",
+        "SAMIM",
+        "Rwandan Defence Force"
+      ],
+      "location": {
+        "country": "Mozambique",
+        "region": "Southern Africa",
+        "lat": -12.9736,
+        "lng": 40.5178
+      },
+      "status": "active",
+      "casualties": "Thousands killed.",
+      "summary": "An Islamist insurgency continues to plague Mozambique's northern Cabo Delgado province, with government and allied forces battling militants, leading to widespread displacement and severe humanitarian challenges.",
+      "year_started": 2017,
+      "travel_alert": null,
+      "id": 14,
+      "global_impact": "- **Humanitarian**: Causes widespread displacement, food insecurity, and disrupts livelihoods for hundreds of thousands, creating a significant humanitarian crisis requiring international assistance.\n- **Energy**: Disrupts major natural gas projects in Cabo Delgado, delaying critical investments and potentially impacting future global LNG supply from a significant new producer.\n- **Regional Security**: Requires military intervention from regional forces (SAMIM) and Rwanda, highlighting the spread of Islamist extremism in Southern Africa and increasing regional security cooperation efforts."
+    },
+    {
+      "name": "Sahel Insurgency (Mali, Burkina Faso, Niger)",
+      "parties": [
+        "National Armed Forces of Mali",
+        "National Armed Forces of Burkina Faso",
+        "National Armed Forces of Niger",
+        "JNIM",
+        "ISGS",
+        "Wagner Group"
+      ],
+      "location": {
+        "country": "Sahel Region",
+        "region": "West Africa",
+        "lat": 12.3714,
+        "lng": -1.5197
+      },
+      "status": "active",
+      "casualties": "Tens of thousands killed.",
+      "summary": "Islamist insurgencies by groups like JNIM and ISGS continue to destabilize Mali, Burkina Faso, and Niger, leading to widespread violence, humanitarian crises, and undermining state authority across large swathes of the region.",
+      "year_started": 2012,
+      "travel_alert": null,
+      "id": 15,
+      "global_impact": "- **Humanitarian**: Massive humanitarian crisis with widespread displacement, severe food insecurity, and attacks on civilian populations, leading to one of the world's most acute humanitarian needs.\n- **Geopolitical**: Creates a vacuum for increased Russian influence (e.g., Wagner Group) following the withdrawal of French forces, altering geopolitical alignments and counter-terrorism efforts in West Africa.\n- **Migration**: Contributes to increased irregular migration flows towards Europe, as people flee violence and instability, creating challenges for transit and destination countries.\n- **Food Security**: Disrupts agricultural production and livestock rearing across the Sahel, exacerbating chronic food insecurity and famine risks in a climate-vulnerable region."
+    },
+    {
+      "name": "Somali Civil War / Al-Shabaab Insurgency",
+      "parties": [
+        "Federal Government of Somalia",
+        "Al-Shabaab",
+        "Clan militias",
+        "ATMIS"
+      ],
+      "location": {
+        "country": "Somalia",
+        "region": "East Africa",
+        "lat": 2.0469,
+        "lng": 45.3182
+      },
+      "status": "active",
+      "casualties": "Hundreds of thousands (since 1991); thousands annually for current phase.",
+      "summary": "The Federal Government of Somalia, supported by African Union forces, continues to battle Al-Shabaab, which maintains control over significant rural areas and launches frequent attacks, prolonging instability and humanitarian challenges.",
+      "year_started": 2006,
+      "travel_alert": null,
+      "id": 16,
+      "global_impact": "- **Humanitarian**: Perpetuates chronic food insecurity, displacement, and limited access to basic services for millions, exacerbated by recurring droughts and floods.\n- **Regional Security**: Al-Shabaab's persistent threat destabilizes the Horn of Africa, contributing to cross-border attacks and requiring sustained regional and international counter-terrorism efforts.\n- **Shipping**: While less direct than Red Sea, piracy risks originating from instability in Somalia can intermittently impact shipping routes near the Horn of Africa, increasing security costs.\n- **Economic**: Hinders economic development, deters foreign investment, and disrupts local trade, prolonging Somalia's reliance on international aid."
+    },
+    {
+      "name": "Central African Republic Civil War",
+      "parties": [
+        "CAR Armed Forces (FACA)",
+        "Coalition of Patriots for Change (CPC)",
+        "Various armed groups",
+        "Wagner Group"
+      ],
+      "location": {
+        "country": "Central African Republic",
+        "region": "Central Africa",
+        "lat": 4.3947,
+        "lng": 18.5582
+      },
+      "status": "active",
+      "casualties": "Thousands killed.",
+      "summary": "The CAR remains mired in a complex civil war with multiple armed groups, including the CPC, challenging government control, leading to persistent violence, instability, and a severe humanitarian emergency, often involving foreign mercenaries.",
+      "year_started": 2012,
+      "travel_alert": null,
+      "id": 17,
+      "global_impact": "- **Humanitarian**: Leads to widespread displacement, severe food insecurity, and human rights abuses, making CAR one of the world's most severe humanitarian crises with limited access for aid organizations.\n- **Regional Stability**: Risks cross-border destabilization, impacting neighboring countries through refugee flows and illicit trade of resources, including diamonds and gold.\n- **Geopolitical**: Involves foreign military actors (e.g., Wagner Group), indicating a shift in geopolitical influence and counter-insurgency strategies in Africa.\n- **Supply Chains**: Disrupts local supply chains for goods and services, and impacts the extraction and trade of natural resources, though CAR is not a major global commodity supplier."
+    },
+    {
+      "name": "Colombian Internal Conflict",
+      "parties": [
+        "Colombian Armed Forces",
+        "Ej\u00e9rcito de Liberaci\u00f3n Nacional (ELN)",
+        "FARC dissidents",
+        "Drug cartels"
+      ],
+      "location": {
+        "country": "Colombia",
+        "region": "South America",
+        "lat": 4.711,
+        "lng": -74.0721
+      },
+      "status": "active",
+      "casualties": "Unknown, ongoing violence.",
+      "summary": "Despite peace efforts, a complex internal conflict persists in Colombia, with the government battling active ELN guerrillas, FARC dissidents, and powerful drug cartels over territorial control and illicit economies.",
+      "year_started": 1964,
+      "travel_alert": null,
+      "id": 18,
+      "global_impact": "- **Supply Chains**: Disruptions to internal transport networks and a climate of insecurity can affect agricultural production and commodity extraction, impacting domestic supply chains.\n- **Humanitarian**: Causes ongoing internal displacement, particularly in rural areas, and human rights abuses, despite overall reductions in violence since the FARC peace accord.\n- **Geopolitical**: Fuels regional criminal networks, particularly drug trafficking, impacting international counter-narcotics efforts and security in neighboring countries.\n- **Economic**: Detracts from foreign investment in conflict-affected regions and perpetuates illicit economies, hindering Colombia's full economic potential."
+    },
+    {
+      "name": "Mexican Drug War",
+      "parties": [
+        "Mexican Armed Forces",
+        "Jalisco New Generation Cartel",
+        "Sinaloa Cartel",
+        "Northeast Cartel",
+        "Various other drug cartels"
+      ],
+      "location": {
+        "country": "Mexico",
+        "region": "North America",
+        "lat": 19.4326,
+        "lng": -99.1332
+      },
+      "status": "active",
+      "casualties": "Hundreds of thousands killed since 2006.",
+      "summary": "Mexico is gripped by an ongoing conflict between powerful drug cartels vying for territory and against the state, leading to extreme violence, high homicide rates, and significant challenges to public order in many regions.",
+      "year_started": 2006,
+      "travel_alert": null,
+      "id": 19,
+      "global_impact": "- **Supply Chains**: Cartel control and violence can disrupt transportation routes and agricultural production, particularly impacting cross-border trade with the US and specific agricultural exports.\n- **Migration**: Contributes to significant internal displacement and drives irregular migration flows towards the US border, creating humanitarian and border management challenges.\n- **Economic**: Deteriorates the investment climate in affected regions, particularly for tourism and certain industries, and fuels illicit economies with international implications.\n- **Geopolitical**: Poses significant security challenges for the US-Mexico border, impacting bilateral relations, trade, and regional security cooperation against organized crime."
+    },
+    {
+      "name": "Communist Insurgency (Philippines)",
+      "parties": [
+        "Philippine Armed Forces",
+        "New People's Army (NPA)"
+      ],
+      "location": {
+        "country": "Philippines",
+        "region": "Southeast Asia",
+        "lat": 14.5995,
+        "lng": 120.9842
+      },
+      "status": "active",
+      "casualties": "Thousands over decades.",
+      "summary": "The New People's Army continues its long-running communist insurgency against the Philippine government, primarily in remote rural areas, though its operational strength has diminished over the past years.",
+      "year_started": 1969,
+      "travel_alert": null,
+      "id": 20,
+      "global_impact": "- **Economic**: Minor localized disruptions to rural development and resource exploitation projects in affected areas, but limited global economic impact due to diminished scale.\n- **Humanitarian**: Causes localized displacement and occasional human rights concerns in remote communities where clashes occur, but not a large-scale humanitarian crisis.\n- **Geopolitical**: While largely internal, persistent low-level insurgency can divert resources from broader national development and security concerns, such as maritime disputes."
+    },
+    {
+      "name": "Moro Insurgency (Philippines - Splinter Groups)",
+      "parties": [
+        "Philippine Armed Forces",
+        "Bangsamoro Islamic Freedom Fighters (BIFF)",
+        "Abu Sayyaf Group (ASG)",
+        "Dawlah Islamiyah"
+      ],
+      "location": {
+        "country": "Philippines",
+        "region": "Mindanao / Sulu Archipelago",
+        "lat": 7.2238,
+        "lng": 124.2492
+      },
+      "status": "active",
+      "casualties": "Unknown, occasional clashes.",
+      "summary": "While a peace agreement with the main Moro Front is in effect, smaller splinter groups like BIFF and Abu Sayyaf continue armed resistance and engage in occasional clashes with government forces in parts of Mindanao and the Sulu archipelago.",
+      "year_started": 2011,
+      "travel_alert": null,
+      "id": 21,
+      "global_impact": "- **Regional Security**: Activities by groups like Abu Sayyaf contribute to regional piracy concerns and cross-border kidnapping risks in the Sulu Sea, impacting maritime trade and tourism.\n- **Humanitarian**: Causes localized displacement and security challenges in parts of Mindanao and the Sulu archipelago, hindering development and humanitarian access in affected communities.\n- **Economic**: Deters investment and tourism in parts of Mindanao and the Sulu archipelago, impacting local economies and contributing to poverty."
+    },
+    {
+      "name": "Lake Chad Basin Conflict (Boko Haram/ISWAP)",
+      "parties": [
+        "Chadian Armed Forces",
+        "Boko Haram (JAS)",
+        "Islamic State West Africa Province (ISWAP)",
+        "Multinational Joint Task Force (MNJTF)"
+      ],
+      "location": {
+        "country": "Chad/Nigeria/Niger/Cameroon",
+        "region": "West/Central Africa",
+        "lat": 12.1067,
+        "lng": 15.0444
+      },
+      "status": "active",
+      "casualties": "Thousands over years.",
+      "summary": "The Lake Chad Basin remains a hotspot for the insurgency by Boko Haram and ISWAP, with national armies and the MNJTF battling militant groups who continue to launch attacks and displace populations across border regions.",
+      "year_started": 2009,
+      "travel_alert": null,
+      "id": 22,
+      "global_impact": "- **Humanitarian**: Generates a severe and complex humanitarian crisis with millions displaced across multiple countries, widespread food insecurity, and limited access to basic services.\n- **Food Security**: Disrupts agricultural and fishing livelihoods in the Lake Chad Basin, exacerbating chronic food shortages and increasing reliance on external food aid.\n- **Regional Security**: Perpetuates insecurity across four countries, requiring sustained regional military cooperation (MNJTF) and international counter-terrorism efforts, with spillover effects on broader Sahelian stability.\n- **Economic**: Destroys infrastructure, disrupts local trade, and deters investment in the affected border regions, hindering economic development for some of the poorest communities globally."
+    },
+    {
+      "name": "Kashmir Conflict (India-Pakistan)",
+      "parties": [
+        "Indian Armed Forces",
+        "Pakistan-backed militant groups",
+        "Local Kashmiri insurgents"
+      ],
+      "location": {
+        "country": "India/Pakistan",
+        "region": "South Asia",
+        "lat": 34.0837,
+        "lng": 74.7973
+      },
+      "status": "active",
+      "casualties": "Hundreds annually.",
+      "summary": "A low-intensity insurgency continues in Indian-administered Kashmir, with local and Pakistan-backed militant groups engaging Indian security forces, while cross-Line of Control skirmishes with Pakistan's military occur periodically.",
+      "year_started": 1989,
+      "travel_alert": null,
+      "id": 23,
+      "global_impact": "- **Geopolitical**: Maintains a long-standing flashpoint between two nuclear-armed states, contributing to regional instability and global proliferation concerns.\n- **Humanitarian**: Leads to intermittent human rights concerns, localized displacement, and disruptions to daily life for Kashmiris, though not a large-scale international humanitarian crisis.\n- **Economic**: Deters foreign investment and hinders economic development in the region, particularly tourism, due to persistent security concerns."
+    },
+    {
+      "name": "Naxalite-Maoist Insurgency (India)",
+      "parties": [
+        "Indian Security Forces",
+        "Communist Party of India (Maoist)"
+      ],
+      "location": {
+        "country": "India",
+        "region": "Central/Eastern India",
+        "lat": 21.2514,
+        "lng": 81.6296
+      },
+      "status": "active",
+      "casualties": "Hundreds annually.",
+      "summary": "India continues to confront a long-running Naxalite-Maoist insurgency in its \"Red Corridor\" regions, characterized by clashes between security forces and Maoist guerrillas, particularly in remote tribal areas.",
+      "year_started": 2004,
+      "travel_alert": null,
+      "id": 24,
+      "global_impact": "- **Economic**: Localized disruption to infrastructure projects (mining, roads) and economic development in affected remote tribal regions, but minimal global economic impact.\n- **Humanitarian**: Causes localized displacement and impacts the provision of public services in affected rural and tribal areas, though not a large-scale international humanitarian crisis.\n- **Geopolitical**: While primarily an internal security challenge, it highlights persistent issues of governance, poverty, and land rights in parts of India."
+    },
+    {
+      "name": "Libyan Civil War (Post-2014)",
+      "parties": [
+        "Government of National Unity (GNU)",
+        "Libyan National Army (LNA)",
+        "Various local militias"
+      ],
+      "location": {
+        "country": "Libya",
+        "region": "North Africa",
+        "lat": 32.8872,
+        "lng": 13.1977
+      },
+      "status": "ceasefire",
+      "casualties": "Thousands killed.",
+      "summary": "Libya remains divided between rival governments and numerous armed factions, sustained by a fragile ceasefire despite ongoing political deadlock, sporadic clashes, and a persistent risk of renewed large-scale fighting.",
+      "year_started": 2014,
+      "travel_alert": null,
+      "id": 25,
+      "global_impact": "- **Energy**: Persistent instability poses a risk to Libya's oil production and exports, which, though fluctuating, are a factor in global oil supply and price stability.\n- **Migration**: Libya remains a major transit point for irregular migration from Africa to Europe, exacerbating humanitarian challenges and contributing to migration pressures in the Mediterranean.\n- **Geopolitical**: Entrenches proxy rivalries among regional and international powers supporting different factions, complicating diplomatic solutions and prolonging instability in North Africa.\n- **Economic**: Hinders economic recovery and development, preventing Libya from fully leveraging its oil wealth for its population and impacting regional trade."
+    },
+    {
+      "name": "Jihadist Insurgency (Tunisia)",
+      "parties": [
+        "Tunisian Armed Forces",
+        "Jihadist groups (Okba Ibn Nafaa Brigade, Jund al-Khilafah remnants)"
+      ],
+      "location": {
+        "country": "Tunisia",
+        "region": "North Africa",
+        "lat": 36.8065,
+        "lng": 10.1815
+      },
+      "status": "active",
+      "casualties": "Dozens annually.",
+      "summary": "Tunisia faces a low-intensity jihadist insurgency, primarily concentrated in its western mountainous regions near the Algerian border, where security forces conduct operations against militant groups.",
+      "year_started": 2011,
+      "travel_alert": null,
+      "id": 26,
+      "global_impact": "- **Economic**: Small-scale localized impact on tourism and investment in specific border regions, but generally limited global economic effects due to the insurgency's contained nature.\n- **Security**: Diverts Tunisian security resources from other national priorities and highlights the persistent threat of regional Islamist extremism, requiring ongoing counter-terrorism efforts.\n- **Humanitarian**: Minor localized impact on communities near conflict zones, but not a significant humanitarian crisis at a national or international level."
+    },
+    {
+      "name": "Syrian Civil War",
+      "parties": [
+        "Syrian Arab Army (SAA)",
+        "Syrian Democratic Forces (SDF)",
+        "Hayat Tahrir al-Sham (HTS)",
+        "Turkish Armed Forces",
+        "Russia",
+        "Iran-backed militias",
+        "United States"
+      ],
+      "location": {
+        "country": "Syria",
+        "region": "Middle East",
+        "lat": 35.9323,
+        "lng": 36.6358
+      },
+      "status": "active",
+      "casualties": "Hundreds of thousands killed (over 13 years).",
+      "summary": "The complex Syrian Civil War continues with multiple factions, including Turkish-backed forces, Kurdish-led SDF, and the HTS, controlling different territories, leading to ongoing skirmishes, sporadic airstrikes, and humanitarian challenges.",
+      "year_started": 2011,
+      "travel_alert": null,
+      "id": 27,
+      "global_impact": "- **Humanitarian**: Continues to be one of the world's most severe and protracted humanitarian crises, with millions of internally displaced persons and refugees, widespread food insecurity, and critical infrastructure destruction.\n- **Geopolitical**: Involves a complex interplay of regional and international powers (e.g., Russia, Iran, Turkey, US), perpetuating proxy conflicts, hindering political resolution, and impacting regional security.\n- **Migration**: Sustains large refugee populations in neighboring countries (Turkey, Lebanon, Jordan) and continues to contribute to irregular migration flows towards Europe, creating significant international challenges.\n- **Energy**: While Syria is not a major oil exporter, the conflict contributes to overall Middle East instability, which can have indirect impacts on regional energy market sentiment and investment."
+    }
+  ]
 }
