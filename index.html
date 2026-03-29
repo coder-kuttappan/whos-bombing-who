@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
     <!-- Mappls SDK — key injected at deploy time via GitHub Actions (MAPPLS_API_KEY secret) -->
     <!-- If forking: replace __MAPPLS_API_KEY__ with your key from https://about.mappls.com/api/signup -->
-    <script src="https://apis.mappls.com/advancedmaps/api/__MAPPLS_API_KEY__/map_sdk?v=3.0&layer=vector"></script>
+    <script src="https://apis.mappls.com/advancedmaps/api/__MAPPLS_API_KEY__/map_sdk?v=3.0&layer=vector&callback=initMapplsMap" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -706,30 +706,40 @@
     }
 
     // ============================================================
-    // MAP TILE PROVIDER — Mappls (MapmyIndia) — India-compliant borders
-    // API key is injected at deploy time via GitHub Actions.
+    // MAP TILE PROVIDER — choose one of the two options below
+    // ============================================================
+
+    let map;
+    let markers = [];
+    let arcLines = [];
+    let conflicts = [];
+
+    // OPTION 1: Mappls (MapmyIndia) — India-compliant borders, dark theme
+    // API key is injected at deploy time via GitHub Actions (MAPPLS_API_KEY secret).
     // Forkers: replace __MAPPLS_API_KEY__ in the <script> tag in <head>
     // with your own key from https://about.mappls.com/api/signup
-    // ============================================================
-    const map = new mappls.Map('map', {
-        center: { lat: 20, lng: 30 },
-        zoom: 3,
-        minZoom: 2,
-        zoomControl: false,
-        search: false,
-    });
-    mappls.setStyle('grey-night');
+    // The SDK calls this function once it has fully loaded.
+    function initMapplsMap() {
+        map = new mappls.Map('map', {
+            center: { lat: 20, lng: 30 },
+            zoom: 3,
+            minZoom: 2,
+            zoomControl: false,
+            search: false,
+        });
+        mappls.setStyle('grey-night');
+        L.control.zoom({ position: 'bottomleft' }).addTo(map);
+        loadConflicts();
+    }
 
-    L.control.zoom({ position: 'bottomleft' }).addTo(map);
-
-    // ============================================================
     // OPTION 2: CARTO Dark — no API key needed, works out of the box
     // Uses OpenStreetMap borders which may show disputed territories
     // differently than official country maps.
-    // To use: comment out the Mappls section above, remove the
-    // Mappls <script> tag from <head>, and uncomment below.
+    // To use: remove the Mappls <script> tag from <head>, comment out
+    // initMapplsMap() above, and uncomment the block below.
+    // Also remove the &callback=initMapplsMap part from the script URL.
     // ============================================================
-    // const map = L.map('map', {
+    // map = L.map('map', {
     //     center: [20, 30],
     //     zoom: 3,
     //     minZoom: 2,
@@ -742,10 +752,7 @@
     //     maxZoom: 19,
     //     attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
     // }).addTo(map);
-
-    let markers = [];
-    let arcLines = [];
-    let conflicts = [];
+    // loadConflicts();
 
     async function loadConflicts() {
         try {
@@ -937,7 +944,6 @@
         if (e.target === e.currentTarget) closeAbout();
     });
 
-    loadConflicts();
 </script>
 </body>
 </html>
