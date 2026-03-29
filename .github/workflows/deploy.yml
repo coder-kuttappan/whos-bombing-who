@@ -24,9 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Inject Mappls API key
-        run: sed -i "s/__MAPPLS_API_KEY__/${{ secrets.MAPPLS_API_KEY }}/g" index.html
-
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
