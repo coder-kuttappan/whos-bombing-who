@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://whosbombingwho.coderkuttappan.com">
     <meta name="google-site-verification" content="eNmP6IuKCpaQO_ytAbOWf5EhNzWJUzBv61nENES2N0s" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -524,7 +524,7 @@
     </div>
 </div>
 
-<div id="map-disclaimer">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--text-muted);">OpenStreetMap</a>. Boundaries not shown. Conflict locations are AI-estimated.</div>
+<div id="map-disclaimer">Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--text-muted);">OpenStreetMap</a>. Boundaries are approximate and do not imply official endorsement. Conflict locations are AI-estimated.</div>
 
 <div id="loading">
     <div class="spinner"></div>
@@ -558,7 +558,7 @@
             <ul>
                 <li><strong>News data</strong> — RSS feeds from <a href="https://www.bbc.co.uk/news/world" target="_blank">BBC World</a>, <a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a>, and <a href="https://www.nytimes.com/section/world" target="_blank">The New York Times</a></li>
                 <li><strong>Conflict extraction & analysis</strong> — <a href="https://ai.google.dev/" target="_blank">Google Gemini</a> (AI-generated)</li>
-                <li><strong>Map tiles</strong> — <a href="https://carto.com/" target="_blank">CARTO</a> (Dark, labels only), using <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> data</li>
+                <li><strong>Map tiles</strong> — <a href="https://carto.com/" target="_blank">CARTO</a> (Dark Matter), using <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> data</li>
                 <li><strong>Map library</strong> — <a href="https://leafletjs.com/" target="_blank">Leaflet.js</a></li>
             </ul>
         </div>
@@ -712,13 +712,14 @@
     });
 
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
     }).addTo(map);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19,
-    }).addTo(map);
+
+    let markers = [];
+    let arcLines = [];
+    let conflicts = [];
 
     async function loadConflicts() {
         try {
@@ -910,9 +911,6 @@
         if (e.target === e.currentTarget) closeAbout();
     });
 
-    let markers = [];
-    let arcLines = [];
-    let conflicts = [];
     loadConflicts();
 </script>
 </body>
