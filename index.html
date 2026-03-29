@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
     <!-- Mappls SDK — key injected at deploy time via GitHub Actions (MAPPLS_API_KEY secret) -->
     <!-- If forking: replace __MAPPLS_API_KEY__ with your key from https://about.mappls.com/api/signup -->
-    <script src="https://apis.mappls.com/advancedmaps/api/__MAPPLS_API_KEY__/map_sdk?v=3.0&layer=vector&callback=initMapplsMap" defer></script>
+    <script src="https://apis.mappls.com/advancedmaps/api/__MAPPLS_API_KEY__/map_sdk?v=3.0&layer=vector" onload="initMapplsMap()"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
