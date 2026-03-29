@@ -712,9 +712,12 @@
     });
 
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+    }).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
     }).addTo(map);
 
     async function loadConflicts() {
