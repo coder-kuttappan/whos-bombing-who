@@ -1,67 +1,89 @@
 {
-  "timestamp": 1786412647.747071,
+  "timestamp": 1786425004.101789,
   "demo": false,
   "conflicts": [
     {
       "name": "Russia-Ukraine War",
       "parties": [
-        "Armed Forces of Ukraine",
-        "Russian Armed Forces"
+        "Russian Armed Forces",
+        "Ukrainian Armed Forces",
+        "pro-Russian separatists"
       ],
       "location": {
         "country": "Ukraine",
-        "region": "Eastern Europe",
+        "region": "Eastern Ukraine, Southern Ukraine, Western Russia",
         "lat": 49.0,
-        "lng": 32.0
+        "lng": 34.0
       },
-      "status": "escalating",
-      "casualties": "Hundreds of thousands killed or injured; over 13 killed in recent drone strike on Russia.",
-      "summary": "Fighting continues intensely along the front lines, with Ukraine increasingly using long-range drones to strike deep inside Russian territory, including recent attacks on industrial centers. Russia maintains missile and drone attacks on Ukrainian cities and infrastructure. Both sides continue to suffer significant casualties.",
+      "status": "active",
+      "casualties": "Tens of thousands killed (military and civilian) since 2022; over 13 killed, 75 injured in recent Russian drone strike.",
+      "summary": "The full-scale invasion continues with active combat across eastern and southern Ukraine. Ukraine has escalated drone attacks deep into Russian territory, including a recent deadly strike on an industrial center in Tatarstan, while Russia continues missile and drone strikes against Ukrainian infrastructure.",
       "year_started": 2022,
-      "travel_alert": "Significant airspace restrictions over Ukraine, Russia, Belarus, and Moldova; many airlines rerouting flights around the region.",
+      "travel_alert": "Ukrainian and Russian airspace remains closed to civilian flights. Regional travel is extremely hazardous.",
       "id": 0,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
-      "name": "US/Israel-Iran War",
+      "name": "Libyan Civil Conflict",
+      "parties": [
+        "Government of National Unity (GNU) affiliated forces",
+        "Libyan National Army (LNA)",
+        "various armed militias"
+      ],
+      "location": {
+        "country": "Libya",
+        "region": "North Africa",
+        "lat": 32.88,
+        "lng": 13.19
+      },
+      "status": "active",
+      "casualties": "Unknown (from recent events); thousands killed since 2014.",
+      "summary": "Libya continues to experience instability and localized armed clashes. A recent drone attack ignited a fire at the Zawiya oil refinery, the country's largest, highlighting ongoing security challenges and the threat of disruption to critical infrastructure by armed factions.",
+      "year_started": 2014,
+      "travel_alert": "Significant travel warnings for Libya due to ongoing instability and armed clashes. Airport operations can be disrupted.",
+      "id": 1,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "US-Israel-Iran Conflict",
       "parties": [
         "United States Armed Forces",
-        "Israeli Armed Forces",
-        "Islamic Revolutionary Guard Corps (Iran)",
-        "Iranian-backed militias"
+        "Israel Defense Forces",
+        "Islamic Revolutionary Guard Corps (IRGC) of Iran"
       ],
       "location": {
         "country": "Iran",
-        "region": "Middle East",
-        "lat": 32.4279,
-        "lng": 53.688
+        "region": "Southern Iran, Persian Gulf, Strait of Hormuz",
+        "lat": 30.0,
+        "lng": 55.0
       },
       "status": "active",
-      "casualties": "Unknown (casualties implied by US demand for compensation).",
-      "summary": "A 'monthslong war' between the U.S./Israel and Iran began in late February, with reports of near-constant U.S. airstrikes in southern Iran. The conflict has reportedly spread to neighboring countries, raising regional tensions. President Trump is seeking compensation from Iran for war-related casualties.",
+      "casualties": "Unknown, implied from US bombing mentioned in articles.",
+      "summary": "The United States and Israel launched a war on Iran on February 28, with US airstrikes targeting southern Iran, including Qeshm island. The conflict has spread to neighboring countries and discussions are ongoing regarding control of the Strait of Hormuz and demands for compensation.",
       "year_started": 2024,
-      "travel_alert": "Airlines rerouting around Iranian airspace due to hostilities, affecting transit through major hubs like Dubai and Doha.",
-      "id": 1,
+      "travel_alert": "Increased military activity in the Persian Gulf and Strait of Hormuz may impact shipping and airspace in a critical international transit zone.",
+      "id": 2,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
       "name": "Israel-Hezbollah Conflict",
       "parties": [
-        "Israeli Armed Forces",
+        "Israel Defense Forces",
+        "United States",
         "Hezbollah"
       ],
       "location": {
         "country": "Lebanon",
-        "region": "Middle East",
-        "lat": 33.8547,
-        "lng": 35.8623
+        "region": "Southern Lebanon, Israel-Lebanon border",
+        "lat": 33.89,
+        "lng": 35.5
       },
       "status": "active",
       "casualties": "Hundreds killed since October 2023.",
-      "summary": "Ongoing cross-border hostilities between Israel and Hezbollah, particularly in southern Lebanon and northern Israel, continue. Beyond direct military engagements, the conflict also involves a significant 'war on finances' targeting Hezbollah's economic networks by the US and Israel.",
-      "year_started": 2006,
-      "travel_alert": "Southern Lebanon and northern Israel are high-risk zones, with frequent exchanges of fire and potential for escalation affecting local travel and services.",
-      "id": 2,
+      "summary": "As part of broader regional tensions, Israel and the United States are actively targeting Hezbollah's financial networks and military capabilities. Cross-border shelling and drone attacks between Hezbollah and Israeli forces continue along the Lebanon-Israel border.",
+      "year_started": 2023,
+      "travel_alert": "Travel to and within Lebanon, particularly southern areas, is significantly affected by ongoing hostilities and border closures.",
+      "id": 3,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
@@ -72,335 +94,408 @@
       ],
       "location": {
         "country": "Turkey",
-        "region": "Middle East",
-        "lat": 39.0,
-        "lng": 35.0
+        "region": "Southeastern Turkey, Northern Iraq, Northern Syria",
+        "lat": 37.92,
+        "lng": 40.22
       },
-      "status": "active",
-      "casualties": "Tens of thousands over decades.",
-      "summary": "A decades-long conflict between the Turkish state and the outlawed PKK continues, though recent moves towards a peace process have been reported. Despite peace efforts, military operations against PKK positions in southeast Turkey, northern Iraq, and northern Syria remain active. ",
+      "status": "de-escalating",
+      "casualties": "Thousands killed over decades; low-level clashes continue.",
+      "summary": "The Turkish government is moving to advance a peace process with the outlawed Kurdistan Workers' Party (PKK), a potentially significant step towards ending their decades-long conflict. Despite these efforts, military operations against the PKK continue in Turkey and across its borders into Iraq and Syria.",
       "year_started": 1984,
-      "travel_alert": null,
-      "id": 3,
+      "travel_alert": "Null",
+      "id": 4,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
-      "name": "Israel-Hamas War (Gaza Conflict)",
+      "name": "Israel-Hamas/Palestine Conflict (Gaza War)",
       "parties": [
-        "Israeli Armed Forces",
+        "Israel Defense Forces",
         "Hamas",
-        "Palestinian Islamic Jihad"
+        "Palestinian Islamic Jihad",
+        "other Palestinian armed groups"
       ],
       "location": {
         "country": "Palestine",
-        "region": "Middle East",
-        "lat": 31.3547,
-        "lng": 34.4667
+        "region": "Gaza Strip, West Bank, Israel",
+        "lat": 31.5,
+        "lng": 34.46
       },
-      "status": "escalating",
-      "casualties": "Over 37,000 Palestinians killed in Gaza, over 1,200 Israelis killed (Oct 7, 2023).",
-      "summary": "The conflict in the Gaza Strip continues with intense ground operations and airstrikes by Israeli forces. Fighting is particularly heavy in Rafah and central Gaza, causing a severe humanitarian crisis. Efforts for a ceasefire and hostage release remain stalled.",
+      "status": "active",
+      "casualties": "Over 35,000 Palestinians killed in Gaza; over 1,200 Israelis killed (Oct 7 attack).",
+      "summary": "The war in Gaza continues with intense Israeli military operations following Hamas's October 7th attack. The conflict has caused widespread destruction, a severe humanitarian crisis, and ongoing displacement in Gaza, alongside continued hostilities in the West Bank and cross-border rocket fire.",
       "year_started": 2023,
-      "travel_alert": "Severe travel warnings for Israel and Palestinian territories. Airspace to/from Israel can be affected by rocket fire and military operations.",
-      "id": 4,
+      "travel_alert": "Significant disruption to regional travel, airspace restrictions, and port operations in Israel and Gaza area. General travel warnings for Israel and Palestine.",
+      "id": 5,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
       "name": "Sudan Civil War",
       "parties": [
         "Sudanese Armed Forces (SAF)",
-        "Rapid Support Forces (RSF)"
+        "Rapid Support Forces (RSF)",
+        "allied militias"
       ],
       "location": {
         "country": "Sudan",
-        "region": "East Africa",
-        "lat": 15.0,
-        "lng": 30.0
+        "region": "Khartoum, Darfur, Gezira, Kordofan states",
+        "lat": 15.5,
+        "lng": 32.55
       },
       "status": "active",
-      "casualties": "Estimated 15,000+ killed, millions displaced.",
-      "summary": "The civil war between the Sudanese Armed Forces and the Rapid Support Forces continues to devastate the country, leading to widespread destruction, displacement, and a severe humanitarian crisis. Fighting is particularly fierce in Khartoum, Darfur, and Kordofan.",
+      "casualties": "Thousands killed, millions displaced.",
+      "summary": "A brutal civil war between the Sudanese Armed Forces and the Rapid Support Forces continues to devastate the country, leading to massive displacement, widespread atrocities, and a severe humanitarian crisis, with fighting focused in Khartoum, Darfur, and other key regions.",
       "year_started": 2023,
-      "travel_alert": null,
-      "id": 5,
+      "travel_alert": "Significant travel warnings for Sudan; airspace restrictions and severe disruptions to internal and international travel.",
+      "id": 6,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
       "name": "Myanmar Civil War",
       "parties": [
-        "Tatmadaw (Myanmar Armed Forces)",
+        "Myanmar military (Tatmadaw)",
         "People's Defense Force (PDF)",
         "Ethnic Armed Organizations (EAOs)"
       ],
       "location": {
         "country": "Myanmar",
-        "region": "Southeast Asia",
-        "lat": 21.9139,
-        "lng": 95.9562
+        "region": "Shan, Karen, Kachin, Rakhine states, Sagaing Region",
+        "lat": 21.95,
+        "lng": 96.08
       },
-      "status": "escalating",
-      "casualties": "Thousands killed, millions displaced since the coup.",
-      "summary": "A widespread civil war continues across Myanmar following the 2021 military coup. The Tatmadaw faces resistance from a coalition of ethnic armed organizations and the People's Defense Force, with anti-junta forces reportedly making significant gains in various regions.",
+      "status": "active",
+      "casualties": "Thousands killed, over 3 million displaced.",
+      "summary": "Myanmar is engulfed in a widespread civil war with the military junta battling numerous pro-democracy People's Defense Forces and powerful Ethnic Armed Organizations, who have made significant territorial gains, particularly in northern Shan and Rakhine states.",
       "year_started": 2021,
-      "travel_alert": null,
-      "id": 6,
+      "travel_alert": "Significant travel warnings for Myanmar; internal travel is highly dangerous and restricted in many regions.",
+      "id": 7,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
       "name": "Yemen Civil War",
       "parties": [
         "Houthi movement (Ansar Allah)",
-        "Yemeni government forces (backed by Saudi-led coalition)"
+        "internationally recognized Yemeni government",
+        "Southern Transitional Council (STC)",
+        "Saudi-led coalition"
       ],
       "location": {
         "country": "Yemen",
-        "region": "Middle East",
-        "lat": 15.5527,
-        "lng": 48.5164
+        "region": "Sana'a, Hodeidah, Marib, Red Sea",
+        "lat": 15.35,
+        "lng": 44.2
       },
       "status": "active",
-      "casualties": "Hundreds of thousands (direct and indirect) since 2014.",
-      "summary": "While a broader de-escalation effort is underway, sporadic clashes persist, particularly in Marib and along various front lines. The Houthi movement continues to conduct drone and missile attacks on shipping in the Red Sea and Gulf of Aden, drawing international military responses.",
+      "casualties": "Hundreds of thousands killed (direct and indirect).",
+      "summary": "While a fragile ceasefire has largely held on the ground, the Houthi movement continues its attacks on commercial shipping in the Red Sea and Gulf of Aden in solidarity with Palestinians, drawing international military responses and complicating an already dire humanitarian situation.",
       "year_started": 2014,
-      "travel_alert": "Red Sea shipping severely impacted by Houthi attacks, causing major disruptions to international maritime trade routes.",
-      "id": 7,
-      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
-    },
-    {
-      "name": "Syrian Civil War",
-      "parties": [
-        "Syrian Armed Forces",
-        "Russian Armed Forces",
-        "Iranian-backed militias",
-        "Turkish Armed Forces",
-        "Syrian National Army",
-        "Syrian Democratic Forces",
-        "Hayat Tahrir al-Sham",
-        "Islamic State (ISIS)"
-      ],
-      "location": {
-        "country": "Syria",
-        "region": "Middle East",
-        "lat": 34.8021,
-        "lng": 38.9968
-      },
-      "status": "active",
-      "casualties": "Hundreds of thousands killed, millions displaced since 2011.",
-      "summary": "Fragmented conflict persists with sporadic fighting across several fronts, including Turkish incursions in the north, clashes between the Syrian army and rebel groups in Idlib, and ongoing counter-terrorism operations against ISIS. Israeli airstrikes against Iranian targets and Hezbollah assets in Syria are also frequent.",
-      "year_started": 2011,
-      "travel_alert": null,
+      "travel_alert": "Significant disruption to Red Sea shipping routes; military operations by international navies are ongoing. Yemeni airspace remains restricted.",
       "id": 8,
-      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
-    },
-    {
-      "name": "Ethiopia - Oromia and Amhara Conflicts",
-      "parties": [
-        "Ethiopian National Defense Force (ENDF)",
-        "Oromo Liberation Army (OLA)",
-        "Fano militias (Amhara)"
-      ],
-      "location": {
-        "country": "Ethiopia",
-        "region": "East Africa",
-        "lat": 9.145,
-        "lng": 40.4897
-      },
-      "status": "active",
-      "casualties": "Thousands killed, tens of thousands displaced.",
-      "summary": "Despite a peace agreement in Tigray, armed conflicts continue in Ethiopia's Oromia and Amhara regions. The ENDF is engaged in ongoing operations against the Oromo Liberation Army and various Fano militias, leading to civilian casualties and displacement.",
-      "year_started": 2023,
-      "travel_alert": null,
-      "id": 9,
-      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
-    },
-    {
-      "name": "DR Congo - Kivu Conflict",
-      "parties": [
-        "Armed Forces of the Democratic Republic of the Congo (FARDC)",
-        "M23 rebellion",
-        "Allied Democratic Forces (ADF)",
-        "various other armed groups"
-      ],
-      "location": {
-        "country": "DR Congo",
-        "region": "Central Africa",
-        "lat": -1.8,
-        "lng": 29.2
-      },
-      "status": "escalating",
-      "casualties": "Thousands killed annually, millions displaced over decades.",
-      "summary": "Violence continues to escalate in eastern Democratic Republic of Congo, particularly in North Kivu province, driven by the resurgence of the M23 rebellion and other armed groups like the ADF. These conflicts have caused widespread displacement and a severe humanitarian crisis.",
-      "year_started": 2022,
-      "travel_alert": null,
-      "id": 10,
-      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
-    },
-    {
-      "name": "Sahel Conflict (Mali, Burkina Faso, Niger)",
-      "parties": [
-        "National armed forces of Mali, Burkina Faso, Niger",
-        "Jama'at Nasr al-Islam wal Muslimin (JNIM)",
-        "Islamic State in the Greater Sahara (ISGS)",
-        "Wagner Group"
-      ],
-      "location": {
-        "country": "Mali",
-        "region": "West Africa",
-        "lat": 17.5707,
-        "lng": -3.9962
-      },
-      "status": "escalating",
-      "casualties": "Thousands killed, millions displaced since 2012.",
-      "summary": "Jihadist insurgencies led by groups like JNIM and ISGS continue to destabilize the central Sahel region, particularly Mali, Burkina Faso, and Niger. National armies, sometimes aided by foreign mercenaries like the Wagner Group, struggle to contain the violence, leading to increasing civilian casualties and displacement.",
-      "year_started": 2012,
-      "travel_alert": null,
-      "id": 11,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
       "name": "Somalia Insurgency",
       "parties": [
-        "Somali National Army (SNA)",
+        "Federal Government of Somalia",
         "African Union Transition Mission in Somalia (ATMIS)",
-        "Al-Shabaab"
+        "al-Shabaab"
       ],
       "location": {
         "country": "Somalia",
-        "region": "East Africa",
-        "lat": 2.0,
-        "lng": 45.0
+        "region": "South and Central Somalia",
+        "lat": 2.04,
+        "lng": 45.34
       },
       "status": "active",
-      "casualties": "Tens of thousands over decades.",
-      "summary": "The Somali government and African Union forces continue to battle the Al-Shabaab insurgency, primarily in central and southern Somalia. Al-Shabaab maintains control over significant rural areas and frequently conducts suicide bombings and attacks in urban centers.",
-      "year_started": 2006,
-      "travel_alert": null,
+      "casualties": "Thousands killed annually.",
+      "summary": "The Somali government, supported by ATMIS forces, continues its offensive against the al-Qaeda-linked al-Shabaab militant group. Al-Shabaab still controls significant territory and carries out frequent attacks, particularly in the south and central regions, despite counter-insurgency efforts.",
+      "year_started": 2007,
+      "travel_alert": "Significant travel warnings for Somalia due to high levels of violence and terrorist activity. Airport and port security can be volatile.",
+      "id": 9,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Democratic Republic of Congo (DRC) Conflicts",
+      "parties": [
+        "Congolese Army (FARDC)",
+        "M23 rebels",
+        "Allied Democratic Forces (ADF)",
+        "various other armed groups",
+        "UN MONUSCO",
+        "SADC Mission in DRC (SAMIDRC)"
+      ],
+      "location": {
+        "country": "Democratic Republic of Congo",
+        "region": "Eastern DRC (North Kivu, Ituri, South Kivu)",
+        "lat": -1.67,
+        "lng": 29.22
+      },
+      "status": "active",
+      "casualties": "Thousands directly killed since 2022; millions indirectly over decades.",
+      "summary": "Eastern DRC remains a hotspot of intense conflict, with the M23 rebel group making significant gains, the ADF conducting brutal attacks, and numerous other armed groups vying for control, leading to mass displacement and a severe humanitarian crisis. Regional forces and UN peacekeepers are deployed.",
+      "year_started": 2022,
+      "travel_alert": "Significant travel warnings for Eastern DRC due to active conflict, kidnapping risks, and widespread insecurity.",
+      "id": 10,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Ethiopia (Oromia/Amhara/Tigray Tensions)",
+      "parties": [
+        "Ethiopian Federal Government",
+        "Oromo Liberation Army (OLA)",
+        "Fano militias",
+        "Amhara regional forces"
+      ],
+      "location": {
+        "country": "Ethiopia",
+        "region": "Oromia, Amhara, Tigray Regions",
+        "lat": 9.0,
+        "lng": 38.75
+      },
+      "status": "active",
+      "casualties": "Thousands killed since 2018.",
+      "summary": "While a peace agreement largely holds in Tigray, armed conflict persists in Oromia between federal forces and the Oromo Liberation Army, and violent clashes involving Fano militias continue to destabilize the Amhara region, challenging federal authority and exacerbating humanitarian concerns.",
+      "year_started": 2018,
+      "travel_alert": "Significant travel warnings for Oromia and Amhara regions due to ongoing violence and insecurity.",
+      "id": 11,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Haiti Gang Violence / Civil Unrest",
+      "parties": [
+        "Haitian National Police",
+        "various powerful armed gangs (e.g., G9, G-P\u00e8p)"
+      ],
+      "location": {
+        "country": "Haiti",
+        "region": "Port-au-Prince, Artibonite Valley",
+        "lat": 18.53,
+        "lng": -72.33
+      },
+      "status": "escalating",
+      "casualties": "Thousands killed, tens of thousands displaced.",
+      "summary": "Haiti is in a state of escalating anarchy as powerful armed gangs control most of the capital, Port-au-Prince, and other key areas. This has led to widespread violence, displacement, the collapse of state institutions, and a struggle to form a transitional government.",
+      "year_started": 2020,
+      "travel_alert": "Significant travel warnings for Haiti; port and airport disruptions are frequent, and internal travel is highly dangerous.",
       "id": 12,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Sahel Region Conflicts (Mali, Burkina Faso, Niger)",
+      "parties": [
+        "National armies of Mali, Burkina Faso, Niger",
+        "JNIM (Al-Qaeda affiliate)",
+        "ISGS (ISIS affiliate)",
+        "local self-defense militias"
+      ],
+      "location": {
+        "country": "Burkina Faso",
+        "region": "Mali, Burkina Faso, Niger (Liptako-Gourma region)",
+        "lat": 12.37,
+        "lng": -1.52
+      },
+      "status": "active",
+      "casualties": "Thousands killed annually, millions displaced.",
+      "summary": "The central Sahel region faces a deepening crisis with powerful jihadist groups, notably JNIM and ISGS, controlling vast territories across Mali, Burkina Faso, and Niger, amidst political instability and military coups, leading to widespread violence and displacement.",
+      "year_started": 2012,
+      "travel_alert": "Significant travel warnings for Mali, Burkina Faso, and Niger due to widespread insecurity, terrorism, and military coups. Internal and regional travel is extremely dangerous.",
+      "id": 13,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Nigeria Insurgencies (Boko Haram/ISWAP, Banditry)",
+      "parties": [
+        "Nigerian Armed Forces",
+        "Boko Haram",
+        "Islamic State West Africa Province (ISWAP)",
+        "various bandit groups"
+      ],
+      "location": {
+        "country": "Nigeria",
+        "region": "Northeast, Northwest, and Central Nigeria",
+        "lat": 9.07,
+        "lng": 7.4
+      },
+      "status": "active",
+      "casualties": "Thousands killed annually.",
+      "summary": "Nigeria continues to battle multiple active conflicts, including the persistent Boko Haram and ISWAP insurgencies in the Northeast, and widespread banditry, kidnappings, and communal violence across the Northwest and Central regions, displacing millions.",
+      "year_started": 2009,
+      "travel_alert": "Significant travel warnings for Northeast and Northwest Nigeria due to terrorism, banditry, and kidnapping risks.",
+      "id": 14,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
       "name": "Cameroon Anglophone Crisis",
       "parties": [
-        "Cameroonian Armed Forces",
-        "Ambazonia separatist groups"
+        "Cameroonian military",
+        "Ambazonian separatist groups"
       ],
       "location": {
         "country": "Cameroon",
-        "region": "Central Africa",
-        "lat": 5.5,
-        "lng": 10.5
+        "region": "Northwest and Southwest Regions",
+        "lat": 5.96,
+        "lng": 10.15
       },
       "status": "active",
-      "casualties": "Thousands killed, hundreds of thousands displaced since 2017.",
-      "summary": "The conflict in Cameroon's Anglophone North-West and South-West regions continues, pitting government forces against various separatist militias demanding an independent state called Ambazonia. The violence has led to widespread human rights abuses and a severe humanitarian crisis.",
+      "casualties": "Thousands killed.",
+      "summary": "The Anglophone crisis in Cameroon's Northwest and Southwest regions continues as separatist groups fight for independence from the Francophone-dominated government, resulting in ongoing clashes, human rights abuses, and a severe humanitarian crisis.",
       "year_started": 2017,
-      "travel_alert": null,
-      "id": 13,
-      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
-    },
-    {
-      "name": "Afghanistan Insurgency (Post-Taliban Takeover)",
-      "parties": [
-        "Taliban",
-        "Islamic State \u2013 Khorasan Province (ISIS-K)",
-        "National Resistance Front (NRF)"
-      ],
-      "location": {
-        "country": "Afghanistan",
-        "region": "South Asia",
-        "lat": 33.9391,
-        "lng": 67.7099
-      },
-      "status": "active",
-      "casualties": "Hundreds to thousands annually.",
-      "summary": "Despite the Taliban's takeover, a low-intensity insurgency persists, primarily between the Taliban and ISIS-K, who conduct sporadic attacks, and limited resistance from the National Resistance Front. Civilian casualties continue from these clashes and terrorist attacks.",
-      "year_started": 2021,
-      "travel_alert": null,
-      "id": 14,
-      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
-    },
-    {
-      "name": "Mozambique Insurgency",
-      "parties": [
-        "Mozambique Armed Forces (FADM)",
-        "Southern African Development Community Mission in Mozambique (SAMIM)",
-        "Islamic State \u2013 Mozambique Province (IS-MP)"
-      ],
-      "location": {
-        "country": "Mozambique",
-        "region": "Southern Africa",
-        "lat": -12.3592,
-        "lng": 40.5283
-      },
-      "status": "active",
-      "casualties": "Thousands killed, hundreds of thousands displaced since 2017.",
-      "summary": "An insurgency linked to the Islamic State continues in Mozambique's northern Cabo Delgado province. Government forces, supported by regional and Rwandan troops, are fighting to regain control from the insurgents, who still launch attacks on villages and infrastructure.",
-      "year_started": 2017,
-      "travel_alert": null,
+      "travel_alert": "Significant travel warnings for Northwest and Southwest Cameroon due to ongoing armed conflict and insecurity.",
       "id": 15,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
-      "name": "India-Pakistan Conflict (Kashmir)",
+      "name": "Afghanistan Conflict",
       "parties": [
-        "Indian Armed Forces",
-        "Pakistani Armed Forces",
-        "various militant groups"
+        "Taliban government",
+        "National Resistance Front (NRF)",
+        "Islamic State \u2013 Khorasan Province (ISKP)"
       ],
       "location": {
-        "country": "India",
-        "region": "South Asia",
-        "lat": 34.0,
-        "lng": 74.0
+        "country": "Afghanistan",
+        "region": "Panjshir, other northern provinces, various regions",
+        "lat": 34.52,
+        "lng": 69.17
       },
       "status": "active",
-      "casualties": "Hundreds annually (primarily insurgents, security forces, and civilians).",
-      "summary": "The long-standing territorial dispute over Kashmir continues to fuel armed conflict, primarily characterized by border skirmishes across the Line of Control (LoC) and counter-insurgency operations by Indian forces against militant groups. Ceasefires are fragile and frequently violated.",
-      "year_started": 1989,
-      "travel_alert": null,
+      "casualties": "Hundreds to thousands annually.",
+      "summary": "While the Taliban controls Afghanistan, it faces a low-level insurgency from the National Resistance Front, primarily in northern provinces, and persistent attacks from the Islamic State \u2013 Khorasan Province (ISKP), targeting both Taliban forces and civilians.",
+      "year_started": 2021,
+      "travel_alert": "Significant travel warnings for Afghanistan; airspace and land routes are subject to instability and security threats.",
       "id": 16,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
-      "name": "Colombia - ELN/Dissident FARC Conflict",
+      "name": "Syrian Civil War",
       "parties": [
-        "Colombian Armed Forces",
-        "Ej\u00e9rcito de Liberaci\u00f3n Nacional (ELN)",
-        "FARC dissidents (Estado Mayor Central, Segunda Marquetalia)"
+        "Syrian Government",
+        "Syrian Democratic Forces (SDF)",
+        "various rebel factions",
+        "Turkish forces",
+        "Russian forces",
+        "remnants of ISIS"
       ],
       "location": {
-        "country": "Colombia",
-        "region": "South America",
-        "lat": 4.5709,
-        "lng": -74.2973
+        "country": "Syria",
+        "region": "Idlib, Northeast Syria, Southern Syria",
+        "lat": 33.51,
+        "lng": 36.27
       },
       "status": "active",
-      "casualties": "Hundreds annually.",
-      "summary": "Despite peace efforts with the ELN and some FARC dissident groups, armed violence persists in various rural areas of Colombia. Clashes between security forces, ELN, and FARC dissidents continue over territorial control and illicit economies, impacting local populations.",
-      "year_started": 2016,
-      "travel_alert": null,
+      "casualties": "Hundreds of thousands killed over the full war; thousands annually in current phase.",
+      "summary": "Despite reduced intensity, the Syrian civil war continues with ongoing clashes in Idlib, Turkish and SDF forces clashing in the northeast, remnants of ISIS conducting insurgent attacks, and various actors maintaining military presence, perpetuating a fragmented conflict.",
+      "year_started": 2011,
+      "travel_alert": "Significant travel warnings for Syria; airspace is restricted and highly dangerous due to military operations.",
       "id": 17,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     },
     {
-      "name": "Nigeria - Boko Haram/ISWAP Insurgency",
+      "name": "Iraq Insurgency (Post-ISIS Phase)",
       "parties": [
-        "Nigerian Armed Forces",
-        "Boko Haram",
-        "Islamic State \u2013 West Africa Province (ISWAP)"
+        "Iraqi Security Forces (ISF)",
+        "Kurdistan Regional Government (KRG) Peshmerga",
+        "Popular Mobilization Forces (PMF)",
+        "Islamic State (ISIS) remnants",
+        "Turkish forces",
+        "Iranian-backed militias"
       ],
       "location": {
-        "country": "Nigeria",
-        "region": "West Africa",
-        "lat": 11.0,
-        "lng": 12.0
+        "country": "Iraq",
+        "region": "Northern Iraq, Anbar, Nineveh, Diyala, Salah al-Din provinces",
+        "lat": 33.32,
+        "lng": 44.36
       },
       "status": "active",
-      "casualties": "Tens of thousands killed, millions displaced since 2009.",
-      "summary": "The insurgency by Boko Haram and its splinter group, ISWAP, remains active in northeastern Nigeria and the wider Lake Chad Basin. Attacks on military bases and civilian communities continue, causing widespread insecurity, displacement, and a severe humanitarian crisis.",
-      "year_started": 2009,
-      "travel_alert": null,
+      "casualties": "Hundreds to thousands annually.",
+      "summary": "Iraq continues to grapple with a low-level insurgency from Islamic State remnants, Turkish military incursions targeting Kurdish militants in the north, and ongoing proxy conflicts involving Iranian-backed militias, leading to periodic clashes and instability.",
+      "year_started": 2017,
+      "travel_alert": "Significant travel warnings for parts of Iraq due to terrorism, insurgent activity, and regional tensions. Airspace can be affected by military actions.",
       "id": 18,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Central African Republic Conflict",
+      "parties": [
+        "Central African Armed Forces (FACA)",
+        "Russian Wagner Group",
+        "UN MINUSCA",
+        "various armed groups (e.g., CPC, UPC)"
+      ],
+      "location": {
+        "country": "Central African Republic",
+        "region": "Various provinces",
+        "lat": 4.39,
+        "lng": 18.55
+      },
+      "status": "active",
+      "casualties": "Hundreds annually.",
+      "summary": "The Central African Republic remains unstable with government forces, supported by Russian Wagner mercenaries, battling various armed groups, notably the CPC, for control of territory, leading to ongoing violence, displacement, and a fragile security situation.",
+      "year_started": 2012,
+      "travel_alert": "Significant travel warnings for the Central African Republic due to active conflict, banditry, and high insecurity.",
+      "id": 19,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Cabo Delgado Insurgency",
+      "parties": [
+        "Mozambique Defence Armed Forces (FADM)",
+        "Southern African Development Community Mission in Mozambique (SAMIM)",
+        "Rwandan Security Forces",
+        "Ahlu Sunnah Wa-Jama (ASWJ) / ISIS-Mozambique"
+      ],
+      "location": {
+        "country": "Mozambique",
+        "region": "Cabo Delgado Province",
+        "lat": -12.97,
+        "lng": 40.52
+      },
+      "status": "active",
+      "casualties": "Thousands killed.",
+      "summary": "An Islamist insurgency linked to ISIS continues in Mozambique's Cabo Delgado province, with government, Rwandan, and SADC forces battling militants who periodically launch attacks, affecting civilians and natural gas projects.",
+      "year_started": 2017,
+      "travel_alert": "Significant travel warnings for Cabo Delgado province due to ongoing Islamist insurgency and military operations.",
+      "id": 20,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "Colombia Internal Conflict",
+      "parties": [
+        "Colombian Armed Forces",
+        "Ej\u00e9rcito de Liberaci\u00f3n Nacional (ELN)",
+        "FARC dissidents (e.g., Estado Mayor Central - EMC)",
+        "Clan del Golfo"
+      ],
+      "location": {
+        "country": "Colombia",
+        "region": "Rural areas (e.g., Cauca, Nari\u00f1o, Antioquia, Arauca)",
+        "lat": 3.5,
+        "lng": -73.0
+      },
+      "status": "active",
+      "casualties": "Hundreds killed annually.",
+      "summary": "Despite government peace efforts, armed conflicts persist in Colombia involving the ELN, FARC dissident groups, and other illegal armed groups, who continue to clash with security forces and each other over control of illicit economies and territories in various rural regions.",
+      "year_started": 2016,
+      "travel_alert": "Null",
+      "id": 21,
+      "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
+    },
+    {
+      "name": "West Papua Conflict",
+      "parties": [
+        "Indonesian military/police",
+        "Free Papua Movement (OPM) / West Papua National Liberation Army (TPNPB)"
+      ],
+      "location": {
+        "country": "Indonesia",
+        "region": "Papua and West Papua provinces",
+        "lat": -2.53,
+        "lng": 140.7
+      },
+      "status": "active",
+      "casualties": "Dozens annually.",
+      "summary": "A long-running, low-intensity conflict continues in Indonesia's West Papua region, where the Free Papua Movement seeks independence, leading to sporadic clashes with Indonesian security forces and human rights concerns.",
+      "year_started": 1969,
+      "travel_alert": "Null",
+      "id": 22,
       "global_impact": "- **Regional instability**: Affects regional security and trade\n- **Humanitarian**: Displacement strains international aid resources\n- **Geopolitical**: Shifts in alliances may have broader implications"
     }
   ]
